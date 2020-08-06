@@ -1,5 +1,6 @@
 package com.dup.tdup;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -61,6 +62,7 @@ public class AddOutfitActivity extends AppCompatActivity
                 if(v == picker_btn) //start gallery activity
                 {
                     Intent intent = new Intent();
+                    intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                     intent.setType("image/*");
                     intent.setAction(Intent.ACTION_GET_CONTENT);
                     startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
@@ -89,6 +91,12 @@ public class AddOutfitActivity extends AppCompatActivity
                         if(title.equals("Long Wears")){category = "long_wears";}
                         if(title.equals("Trousers")){category = "trousers";}
                         if(title.equals("Shorts and Skirts")){category = "shorts_n_skirts";}
+
+                        // 추가
+                        if(title.equals("Hats")){category = "hats";}
+                        if(title.equals("Scarves")){category = "scarves";}
+                        if(title.equals("Shoes")){category = "shoes";}
+
 
                         Bitmap bmp = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
                         boolean result = database.insertOutfit(category, bmp);
@@ -137,14 +145,40 @@ public class AddOutfitActivity extends AppCompatActivity
             {
                 case PICK_IMAGE:
                     Uri selectedImage = data.getData();
+                    ClipData clipData = data.getClipData();
                     try
                     {
+                        /*
+                        if(clipData.getItemCount() == 1){
+                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                            selected_bmp = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                            ;
+                            imageView.setImageBitmap(bitmap);
+                            picker_btn.setVisibility(View.GONE);
+                            insert_btn.setVisibility(View.VISIBLE);
+                            sensitivity_bar.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            //수정_소정_다중선택
+                            for (int i = 0; i < clipData.getItemCount(); i++) {
+                                Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                                selected_bmp = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                                ;
+                                imageView.setImageBitmap(bitmap);
+                                picker_btn.setVisibility(View.GONE);
+                                insert_btn.setVisibility(View.VISIBLE);
+                                sensitivity_bar.setVisibility(View.VISIBLE);
+                            }
+                        }
+                        */
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
                         selected_bmp = bitmap.copy(Bitmap.Config.ARGB_8888, true);;
                         imageView.setImageBitmap(bitmap);
                         picker_btn.setVisibility(View.GONE);
                         insert_btn.setVisibility(View.VISIBLE);
                         sensitivity_bar.setVisibility(View.VISIBLE);
+
+
                     }
                     catch(IOException e){Log.d(TAG, "IO exception " + e);}
                     break;

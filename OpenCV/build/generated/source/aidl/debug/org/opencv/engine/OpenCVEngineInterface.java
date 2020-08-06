@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /home/atilla/AndroidStudioProjects/tDUP/OpenCV/src/org/opencv/engine/OpenCVEngineInterface.aidl
+ * Original file: C:\\Users\\SM-PC\\AndroidStudioProjects\\android-samples-master\\DUP\\OpenCV\\src\\org\\opencv\\engine\\OpenCVEngineInterface.aidl
  */
 package org.opencv.engine;
 /**

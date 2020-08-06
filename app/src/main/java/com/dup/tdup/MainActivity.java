@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity
 
     private Button btn_fit_outfit;
     private Button btn_add_outfit;
+    private Button btn_img_download;
     private TextView textView_add_outfit;
     private TextView textView_fit_outfit;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity
 
         btn_fit_outfit = (Button) findViewById(R.id.button_fit_outfit);
         btn_add_outfit = (Button) findViewById(R.id.button_add_outfit);
+        btn_img_download = (Button) findViewById(R.id.button_image_download);
         textView_add_outfit = (TextView) findViewById(R.id.textview_add_outfit);
         textView_fit_outfit = (TextView) findViewById(R.id.text_view_fit_outfit);
 
@@ -59,5 +61,19 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });//end btn_add_outfit onClick
+
+        btn_img_download.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(v ==  btn_img_download) //start gallery activity
+                {
+                    Intent intent = new Intent(MainActivity.this, ImageDownloadActivity.class);
+                    MainActivity.this.startActivity(intent);
+                }
+            }
+        });//end btn_add_outfit onClick
+
     }//End onCreate
 }//End activity

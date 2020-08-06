@@ -89,6 +89,7 @@ public class DatabaseManager extends SQLiteOpenHelper
         else return true;
     }//end insertOutfit
 
+    //저장한 모든 옷 목록 띄워주기
     public ArrayList<Outfit> getOutfitList()
     {
         ArrayList<Outfit> outfitList = new ArrayList<>();
@@ -111,7 +112,6 @@ public class DatabaseManager extends SQLiteOpenHelper
         db.close();
         return outfitList;
     }//end getOutfitList
-
 
 
     public Outfit getOutfitById(int id)

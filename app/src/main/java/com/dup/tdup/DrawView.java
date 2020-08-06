@@ -114,11 +114,40 @@ public class DrawView extends View
         int short_bottom = (int) (mDrawPoint.get(9).y+10); //The Y coordinate of the bottom of the rectangle
         Rect rect_short = new Rect(short_left,short_top,short_right,short_bottom);
 
+        // 추가
+        //Coordinates to fit "Hats" outfit
+        int hats_left = (int) (mDrawPoint.get(0).x-60); //The X coordinate of the left side of the rectangle
+        int hats_top  = (int) (mDrawPoint.get(0).y-90); //The Y coordinate of the top of the rectangle
+        int hats_right = (int) (mDrawPoint.get(1).x+60); //The X coordinate of the right side of the rectangle
+        int hats_bottom = (int) (mDrawPoint.get(1).y-85); //The Y coordinate of the bottom of the rectangle
+        Rect rect_hats = new Rect(hats_left,hats_top,hats_right,hats_bottom);
+
+        //Coordinates to fit "Scarves" outfit
+        int scarves_left = (int) (mDrawPoint.get(2).x-30); //The X coordinate of the left side of the rectangle
+        int scarves_top  = (int) (mDrawPoint.get(1).y-10); //The Y coordinate of the top of the rectangle
+        int scarves_right = (int) (mDrawPoint.get(5).x+30); //The X coordinate of the right side of the rectangle
+        int scarves_bottom = (int) (mDrawPoint.get(8).y); //The Y coordinate of the bottom of the rectangle
+        Rect rect_scarves = new Rect(scarves_left,scarves_top,scarves_right,scarves_bottom);
+
+        //Coordinates to fit "Shoes" outfit
+        int shoes_left = (int) (mDrawPoint.get(5).x-30); //The X coordinate of the left side of the rectangle
+        int shoes_top  = (int) (mDrawPoint.get(10).y+10); //The Y coordinate of the top of the rectangle
+        int shoes_right = (int) (mDrawPoint.get(5).x+30); //The X coordinate of the right side of the rectangle
+        int shoes_bottom = (int) (mDrawPoint.get(10).y+100); //The Y coordinate of the bottom of the rectangle
+        Rect rect_shoes = new Rect(shoes_left,shoes_top,shoes_right,shoes_bottom);
+
+
         Rect dst_rect = rect_top;
         if(currentOutfit.getCategory().equals("top")){dst_rect = rect_top;}
         if(currentOutfit.getCategory().equals("long_wears")){dst_rect = rect_long;}
         if(currentOutfit.getCategory().equals("trousers")){dst_rect = rect_trousers;}
         if(currentOutfit.getCategory().equals("shorts_n_skirts")){dst_rect = rect_short;}
+
+        // 추가
+        if(currentOutfit.getCategory().equals("hats")){dst_rect = rect_hats;}
+        if(currentOutfit.getCategory().equals("scarves")){dst_rect = rect_scarves;}
+        if(currentOutfit.getCategory().equals("shoes")){dst_rect = rect_shoes;}
+
 
         canvas.drawBitmap(outfit_bmp, null, dst_rect, null);
 
@@ -135,30 +164,30 @@ public class DrawView extends View
 
         if(mRatioWidth == 0 || mRatioHeight == 0){setMeasuredDimension(width, height);}
         else
+        {
+            if (width < height * mRatioWidth / mRatioHeight)
             {
-                if (width < height * mRatioWidth / mRatioHeight)
-                {
-                    mWidth = width;
-                    mHeight = width * mRatioHeight / mRatioWidth;
-                }else
-                    {
-                        mWidth = height * mRatioWidth / mRatioHeight;
-                        mHeight = height;
-                    }
+                mWidth = width;
+                mHeight = width * mRatioHeight / mRatioWidth;
+            }else
+            {
+                mWidth = height * mRatioWidth / mRatioHeight;
+                mHeight = height;
             }
+        }
 
         setMeasuredDimension(mWidth, mHeight);
 
         try {
-                mRatioX = (float)mImgWidth / mWidth;
-                mRatioY = (float)mImgHeight / mHeight;
-            }
-            catch(ArithmeticException e)
-                {
-                    Log.d(TAG, " mRatioX|mRatioY Arithmetic Exception !!");
-                    mRatioX =1;
-                    mRatioY=1;
-                }
+            mRatioX = (float)mImgWidth / mWidth;
+            mRatioY = (float)mImgHeight / mHeight;
+        }
+        catch(ArithmeticException e)
+        {
+            Log.d(TAG, " mRatioX|mRatioY Arithmetic Exception !!");
+            mRatioX =1;
+            mRatioY=1;
+        }
     }//End onMeasure
 
     //Convert a dip value into a float

@@ -12,9 +12,14 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
+import android.widget.Toast;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>
 {
@@ -51,6 +56,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         if(category.equals("trousers")){description = "Trousers";}
         if(category.equals("shorts_n_skirts")){description = "Shorts and Skirts";}
 
+        // 추가
+        if(category.equals("hats")){description = "Hats";}
+        if(category.equals("scarves")){description = "Scarves";}
+        if(category.equals("shoes")){description = "Shoes";}
+
         myViewHolder.textView_description.setText(description);
         byte[] img_byte = outfitList.get(i).getImage(); //get image as byte array
         //convert byte array image to bitmap
@@ -81,6 +91,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 return false;
             }
         });
+
+        //소정추가
+        //set checkbox click listener
+        myViewHolder.checkbox_item.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+            //@Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // 체크박스를 클릭해서 상태가 바꾸었을 경우 호출되는 콜백 메서드
+
+                if (buttonView.getId() == R.id.card_view_item_checkbox) {
+                    if (isChecked) {
+                        Toast.makeText(mContext.getApplicationContext(),"선택", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(mContext.getApplicationContext(), "선택 취소", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
+
+
     }//end onBindViewHolder
 
     @Override
@@ -96,6 +127,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         CardView cardView_item;
         TextView textView_description;
         ImageView img_item;
+        CheckBox checkbox_item;  //소정추가
+        Button bt_item;
 
         public MyViewHolder(View itemView)
         {
@@ -103,6 +136,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             cardView_item = (CardView) itemView.findViewById(R.id.card_view_item_frame_id);
             textView_description = (TextView) itemView.findViewById(R.id.card_view_item_description);
             img_item = (ImageView) itemView.findViewById(R.id.card_view_item_image);
+            checkbox_item = (CheckBox) itemView.findViewById(R.id.card_view_item_checkbox);     //소정추가
 
             itemView.setOnCreateContextMenuListener(this);
         }//end Constructor

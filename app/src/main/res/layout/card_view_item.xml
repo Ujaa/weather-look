@@ -1,39 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cardView="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_view_item_frame_id"
-    android:background="@color/cardview_light_background"
-    android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:layout_width="120dp"
-    android:layout_height="190dp"
-    android:layout_margin="5dp"
-    cardView:cardCornerRadius="4dp">
 
-    <LinearLayout
-        android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:andfoid="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view_item_frame_id"
+        android:layout_width="120dp"
+        android:layout_height="225dp"
+        android:layout_margin="5dp"
         android:background="@color/cardview_light_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:choiceMode="multipleChoice"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="4dp">
 
-        <ImageView
-            android:id="@+id/card_view_item_image"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="233dp"
             android:background="@color/cardview_light_background"
-            android:contentDescription="TODO"
-            android:scaleType="centerCrop" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/card_view_item_description"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/cardview_light_background"
-            android:fontFamily="monospace"
-            android:gravity="center"
-            android:text="description"
-            android:textColor="@color/cardview_dark_background"
-            android:textSize="13sp" />
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+            <ImageView
+                android:id="@+id/card_view_item_image"
+                android:layout_width="match_parent"
+                android:layout_height="143dp"
+                android:background="@color/cardview_light_background"
+                android:choiceMode="multipleChoice"
+                android:contentDescription="TODO"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/card_view_item_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cardview_light_background"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:text="description"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="13sp" />
+
+            <CheckBox
+                android:id="@+id/card_view_item_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check" />
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

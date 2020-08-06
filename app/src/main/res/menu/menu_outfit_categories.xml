@@ -14,4 +14,16 @@
     <item
         android:id="@+id/menu_item_shorts"
         android:title="Shorts and Skirts" />
+
+    // 추가
+    <item
+        android:id="@+id/menu_item_hats"
+        android:title="Hats" />
+    <item
+        android:id="@+id/menu_item_scarves"
+        android:title="Scarves" />
+    <item
+        android:id="@+id/menu_item_shoes"
+        android:title="Shoes" />
+
 </menu>
