@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -16,8 +17,8 @@ import java.util.ArrayList;
 
 public class DrawView extends View
 {
-
-    static Outfit currentOutfit;
+    static Bitmap outfitImg;
+    static String outfitCategory;
     private int mRatioWidth = 0;
     private int mRatioHeight = 0;
     private ArrayList<PointF> mDrawPoint = new ArrayList<PointF>();
@@ -84,11 +85,6 @@ public class DrawView extends View
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setStrokeWidth(dipToFloat(2));
 
-
-        byte[] outfit_byte_array = currentOutfit.getImage();
-        Bitmap outfit_bmp = BitmapFactory.decodeByteArray(outfit_byte_array,
-                0, outfit_byte_array.length);
-
         //Coordinates to fit "TOP" outfit
         int top_left = (int) (mDrawPoint.get(2).x-60); //The X coordinate of the left side of the rectangle
         int top_top  = (int) (mDrawPoint.get(1).y-10); //The Y coordinate of the top of the rectangle
@@ -138,18 +134,18 @@ public class DrawView extends View
 
 
         Rect dst_rect = rect_top;
-        if(currentOutfit.getCategory().equals("top")){dst_rect = rect_top;}
-        if(currentOutfit.getCategory().equals("long_wears")){dst_rect = rect_long;}
-        if(currentOutfit.getCategory().equals("trousers")){dst_rect = rect_trousers;}
-        if(currentOutfit.getCategory().equals("shorts_n_skirts")){dst_rect = rect_short;}
+        if(outfitCategory.equals("top")){dst_rect = rect_top;}
+        if(outfitCategory.equals("long_wears")){dst_rect = rect_long;}
+        if(outfitCategory.equals("trousers")){dst_rect = rect_trousers;}
+        if(outfitCategory.equals("shorts_n_skirts")){dst_rect = rect_short;}
 
         // 추가
-        if(currentOutfit.getCategory().equals("hats")){dst_rect = rect_hats;}
-        if(currentOutfit.getCategory().equals("scarves")){dst_rect = rect_scarves;}
-        if(currentOutfit.getCategory().equals("shoes")){dst_rect = rect_shoes;}
+        if(outfitCategory.equals("hats")){dst_rect = rect_hats;}
+        if(outfitCategory.equals("scarves")){dst_rect = rect_scarves;}
+        if(outfitCategory.equals("shoes")){dst_rect = rect_shoes;}
 
 
-        canvas.drawBitmap(outfit_bmp, null, dst_rect, null);
+        canvas.drawBitmap(outfitImg, null, dst_rect, null);
 
         Log.d(TAG, " points has been drawed");
     }//End onDraw
@@ -197,4 +193,5 @@ public class DrawView extends View
                 getContext().getResources().getDisplayMetrics());
         return dip_val;
     }//end dipToFloat
+
 }//End class

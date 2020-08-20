@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: /Users/serinkim/Documents/2020-Summer/untitled folder/OpenCV/src/org/opencv/engine/OpenCVEngineInterface.aidl
+ * Original file: C:\\Users\\yujin\\Desktop\\weather-look\\OpenCV\\src\\org\\opencv\\engine\\OpenCVEngineInterface.aidl
  */
 package org.opencv.engine;
 /**
