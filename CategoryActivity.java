@@ -47,6 +47,7 @@ public class CategoryActivity extends AppCompatActivity {
         initRecyclerView();
     }
 
+    // <희> 기온별 옷차림 목록
     private void getCategory(){
         Intent intent = getIntent();
         int temp = intent.getExtras().getInt("temp");
