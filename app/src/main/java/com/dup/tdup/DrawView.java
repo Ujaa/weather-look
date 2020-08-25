@@ -13,6 +13,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class DrawView extends View
@@ -30,7 +32,7 @@ public class DrawView extends View
     private int mImgHeight = 0;
     private Paint mPaint = new Paint();
     private String TAG = "C-DRAWVIEW: ";
-
+    //private Context context;
 
     //Constructors
     public DrawView(Context context){super(context);}
@@ -38,8 +40,8 @@ public class DrawView extends View
     public DrawView(Context context, AttributeSet attrs, int defStyleAttr)
     {super(context,attrs,defStyleAttr);}
 
-
     public void setImgSize(int width, int height)
+
     {
         mImgWidth = width;
         mImgHeight = height;
@@ -79,7 +81,10 @@ public class DrawView extends View
     public void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
-        if(mDrawPoint.isEmpty()){Log.d(TAG, " mDrawPoint is NULL !!");return;}
+        Toast.makeText(super.getContext(),"똑바로 서주세요", Toast.LENGTH_SHORT).show();
+        if(mDrawPoint.isEmpty())
+        {Log.d(TAG, " mDrawPoint is NULL !!");Toast.makeText(super.getContext(), "제대로 인식되지 않습니다. 똑바로 서주세요", Toast.LENGTH_SHORT).show();return;}
+
 
         mPaint.setFlags(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
         mPaint.setStyle(Paint.Style.FILL);
@@ -145,8 +150,9 @@ public class DrawView extends View
         if(outfitCategory.equals("shoes")){dst_rect = rect_shoes;}
 
 
-        canvas.drawBitmap(outfitImg, null, dst_rect, null);
 
+        canvas.drawBitmap(outfitImg, null, dst_rect, null);
+        Toast.makeText(super.getContext(), "피팅 완료", Toast.LENGTH_SHORT).show();
         Log.d(TAG, " points has been drawed");
     }//End onDraw
 
