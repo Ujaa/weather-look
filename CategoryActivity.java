@@ -58,6 +58,7 @@ public class CategoryActivity extends AppCompatActivity {
         //initRecyclerView();
     }
 
+    // 화면에 보여줄 정보 (상위 카테고리, 상품 정보)
     private ArrayList<Category> getCategories() {
         // 기온별 옷차림 받아오기
         prepareCategory();
@@ -191,7 +192,7 @@ public class CategoryActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-
+    // 기온별 옷차림
     private void prepareCategory(){
         Intent intent = getIntent();
         int temp = intent.getExtras().getInt("temp");

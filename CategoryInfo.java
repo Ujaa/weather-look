@@ -2,8 +2,8 @@ package com.dup.tdup;
 
 import java.util.ArrayList;
 
-// <희>
-public class CategoryInfo { // 카테고리
+// <희> - 기온별로 달라지는 하위 카테고리 정보 저장
+public class CategoryInfo {
     ArrayList<String> top;
     ArrayList<String> bottom;
     ArrayList<String> outer;

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+// <희> 상위 카테고리를 표시할 vertical recyclerview
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
     private Context context;
@@ -41,6 +42,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         return categories.size();
     }
 
+    // 보여줄 항목: 하위 카테고리를 표시할 horizontal recyclerview, 상위 카테고리 이름
     public class ViewHolder extends RecyclerView.ViewHolder {
         RecyclerView recyclerView;
         TextView tvHeading;

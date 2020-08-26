@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 // 기존 CategoryAdapter 수정 후 ItemAdapter로 이름 변경
 // CategoryAdapter 다른 내용으로 신규 생성
+// <희> - 하위 카테고리를 표시할 horizontal recyclerview
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     private Context context;
@@ -69,10 +70,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 .asBitmap()
                 .load(items.get(position).imgSrc)
                 .into(holder.ivItem);
-    }
-        /*
-        세 번째 페이지 있었을 때의 코드
 
+        //상세 페이지에 정보 전달
         //holder.itemImageView.setOnClickListener(onClickItem);
         holder.ivItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,8 +88,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
                 context.startActivity(intent);
             }
         });
-         */
+    }
 
+    // 보여줄 항목: 상품 사진, 이름
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView ivItem;
@@ -104,7 +104,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     }
 
     @Override
-    // TODO 각 category의 item 개수 반환해야함
     public int getItemCount() {
         return items.size();
     }
