@@ -176,11 +176,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        PermissionManager permissionManager = new PermissionManager(this);
-        permissionManager.requestPerms();
+        //로딩화면 생성
+        /*
+        Intent intent = new Intent(this, LoadingActivity.class);
+        startActivity(intent);
+         */
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        PermissionManager permissionManager = new PermissionManager(this);
+        permissionManager.requestPerms();
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(permission_list, 0);
