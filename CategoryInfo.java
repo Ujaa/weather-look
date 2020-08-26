@@ -2,14 +2,14 @@ package com.dup.tdup;
 
 import java.util.ArrayList;
 
-// <희> 카테고리 분류
-public class CategoryInfo { 
-    ArrayList<String> top;      
-    ArrayList<String> bottom;        
-    ArrayList<String> outer;       
-    ArrayList<String> dress;       
-    ArrayList<String> accessory;     
-    
+// <희> - 기온별로 달라지는 하위 카테고리 정보 저장
+public class CategoryInfo {
+    ArrayList<String> top;
+    ArrayList<String> bottom;
+    ArrayList<String> outer;
+    ArrayList<String> dress;
+    ArrayList<String> accessory;
+
     public CategoryInfo(ArrayList<String> _top, ArrayList<String> _bottom, ArrayList<String> _outer, ArrayList<String> _dress, ArrayList<String> _accessory) {
         super();
         this.top = _top;
