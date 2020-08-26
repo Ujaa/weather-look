@@ -42,7 +42,7 @@ public class CategoryActivity extends AppCompatActivity {
     private ArrayList<String> dressArrayList = new ArrayList<>();
     private ArrayList<String> accessoryArrayList = new ArrayList<>();
 
-    private ArrayList<String> urlTopList = new ArrayList<>();//cho
+    private ArrayList<String> urlTopList = new ArrayList<>();
     private ArrayList<String> urlBottomList = new ArrayList<>();
     private ArrayList<String> urlOuterList = new ArrayList<>();
     private ArrayList<String> urlDressList = new ArrayList<>();
@@ -79,7 +79,7 @@ public class CategoryActivity extends AppCompatActivity {
         // TextView 에 setText 하기 전, [중괄호]를 없애기 위한 임시 문자열
         String topString, bottomString, outerString, dressString, accessoryString;
 
-        getImages();//cho
+        getImages();
 
         // 표시할 카테고리와 아이템 종류 갖고오기
         ArrayList<Category> categories = new ArrayList<Category>();
@@ -158,7 +158,7 @@ public class CategoryActivity extends AppCompatActivity {
         return categories;
     }
 
-    private void getImages(){//cho
+    private void getImages(){
         Thread imgThread = new Thread(new Runnable(){
             public void run() {
                 try {
@@ -180,7 +180,7 @@ public class CategoryActivity extends AppCompatActivity {
                         if(cate=="얇은 긴팔티") urlTopList.add("https://codibook.net/codi/7979973");
                         if(cate=="긴팔셔츠") urlTopList.add("https://codibook.net/codi/7979986");
                         if(cate=="두꺼운 긴팔니트") urlTopList.add("https://codibook.net/codi/7979992");
-                        if(cate=="후드티") urlTopList.add("https://codibook.net/codi/7979674");
+                        if(cate=="후드티") urlTopList.add("https://codibook.net/codi/7979415");
                         if(cate=="터틀넥") urlTopList.add("https://codibook.net/codi/7980354");
                         if(cate=="맨투맨") urlTopList.add("https://codibook.net/codi/7980360");
                     }
@@ -224,6 +224,7 @@ public class CategoryActivity extends AppCompatActivity {
                             itemPrice = el.select("div[class=price]>span").text();
                             itemID = el.select("a[class=item_link]").attr("href");
                             itemCategory = "trousers";
+                            if(url=="https://codibook.net/codi/7979281" || url=="https://codibook.net/codi/7978096") itemCategory = "shorts_n_skirks";
 
                             BottomitemInfoArrayList.add(new ItemInfo(itemImgSrc, itemName, itemPrice, itemID, itemCategory));
                         }
@@ -261,6 +262,7 @@ public class CategoryActivity extends AppCompatActivity {
                             itemPrice = el.select("div[class=price]>span").text();
                             itemID = el.select("a[class=item_link]").attr("href");
                             itemCategory = "top";
+                            if(url=="https://codibook.net/codi/7979406" || url=="https://codibook.net/codi/7979410" || url=="https://codibook.net/codi/7979418") itemCategory = "long_wears";
 
                             OuteritemInfoArrayList.add(new ItemInfo(itemImgSrc, itemName, itemPrice, itemID, itemCategory));
                         }
@@ -319,7 +321,8 @@ public class CategoryActivity extends AppCompatActivity {
                             itemName = el.select("div[class=title_wrapper]").text();
                             itemPrice = el.select("div[class=price]>span").text();
                             itemID = el.select("a[class=item_link]").attr("href");
-                            itemCategory = "scarves";
+                            itemCategory = "hats";
+                            if(url=="https://codibook.net/codi/7983636") itemCategory = "scarves";
 
                             AccessoryitemInfoArrayList.add(new ItemInfo(itemImgSrc, itemName, itemPrice, itemID, itemCategory));
                         }
@@ -361,9 +364,9 @@ public class CategoryActivity extends AppCompatActivity {
         int feel = intent.getExtras().getInt("feel");
         int humidity = intent.getExtras().getInt("humidity");
         // <희> 테스트용으로 temp, feel, humidity 설정
-        temp = -10;
-        feel = -10;
-        humidity = 0;
+//        temp = -10;
+//        feel = -10;
+//        humidity = 0;
         if (feel < -3){//매우 추운 날씨
             topArrayList.add("터틀넥");
             topArrayList.add("후드티");
@@ -371,6 +374,7 @@ public class CategoryActivity extends AppCompatActivity {
             bottomArrayList.add("긴청바지");
             outerArrayList.add("롱패딩");
             accessoryArrayList.add("목도리");
+            accessoryArrayList.add("겨울모자");
             //accessoryArrayList.add("귀마개");
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, outerArrayList, null, accessoryArrayList));
         }else if (feel >= -3 && temp <= 4) {
@@ -381,6 +385,7 @@ public class CategoryActivity extends AppCompatActivity {
             outerArrayList.add("롱패딩");
             outerArrayList.add("롱코트");
             accessoryArrayList.add("목도리");
+            accessoryArrayList.add("겨울모자");
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, outerArrayList, null, accessoryArrayList));
             //CategoryInfo zero = categoryInfoArrayList.get(0);
             //zero.getTop();
@@ -447,7 +452,8 @@ public class CategoryActivity extends AppCompatActivity {
             bottomArrayList.add("숏스커트");
             dressArrayList.add("반팔원피스(숏)");
             dressArrayList.add("반팔원피스(롱)");
-            categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, null, dressArrayList, null));
+            accessoryArrayList.add("여름모자");
+            categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, null, dressArrayList, accessoryArrayList));
         } else if (feel >= 32) {//매우 더운 날씨
             topArrayList.add("반팔티");
             topArrayList.add("나시");
@@ -456,7 +462,8 @@ public class CategoryActivity extends AppCompatActivity {
             dressArrayList.add("반팔원피스(숏)");
             dressArrayList.add("나시원피스(롱)");
             dressArrayList.add("반팔원피스(롱)");
-            categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, null, dressArrayList, null));
+            accessoryArrayList.add("여름모자");
+            categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, null, dressArrayList, accessoryArrayList));
         }
         return categoryInfoArrayList.get(categoryInfoArrayList.size()-1);
     }
