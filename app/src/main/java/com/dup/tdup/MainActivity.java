@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
         getMyLocation();
         String content;
         Weather weather = new Weather();
+        //
 
         try {
             content = weather.execute("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=4a1b15c4aacf678efc30be1d8b411e1d").get();
@@ -291,10 +292,10 @@ public class MainActivity extends AppCompatActivity {
 
             humid = (int) Double.parseDouble(humidity);
 
-            String resultText="날씨 : "+main+"\n습도 : "+humidity+"%";
+            String resultText="날씨: "+main+"\n습도: "+humidity+"%";
 
             result.setText(resultText);
-            tempText.setText(temp+"도");
+            tempText.setText(temp+"°");
 
             //How we will show this result on screen
 
