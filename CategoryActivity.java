@@ -37,15 +37,6 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        TextView tempText = (TextView) findViewById(R.id.textView_temp);
-        /* <희> 체감온도 test*/
-        // <희> TextView feelText = (TextView) findViewById(R.id.textView_feel);
-        Intent intent = getIntent();
-        int temp = intent.getExtras().getInt("temp");
-        tempText.setText(String.valueOf(temp));
-        // <희> int feel = intent.getExtras().getInt("feel");
-        // <희> feelText.setText(String.valueOf(feel));
-
         rvCategory = findViewById(R.id.rvCategory);
 
         categories = getCategories();
@@ -61,7 +52,17 @@ public class CategoryActivity extends AppCompatActivity {
     // 화면에 보여줄 정보 (상위 카테고리, 상품 정보)
     private ArrayList<Category> getCategories() {
         // 기온별 옷차림 받아오기
-        prepareCategory();
+        CategoryInfo categoryNow = prepareCategory();
+
+        // 어떤 옷을 추천해주는지 표시하는 텍스트
+        TextView topText = (TextView) findViewById(R.id.tvTop);
+        TextView bottomText = (TextView) findViewById(R.id.tvBottom);
+        TextView outerText = (TextView) findViewById(R.id.tvOuter);
+        TextView dressText = (TextView) findViewById(R.id.tvDress);
+        TextView accessoryText = (TextView) findViewById(R.id.tvAccessory);
+
+        // TextView 에 setText 하기 전, [중괄호]를 없애기 위한 임시 문자열
+        String topString, bottomString, outerString, dressString, accessoryString;
 
         // 표시할 카테고리와 아이템 종류 갖고오기
         ArrayList<Category> categories = new ArrayList<Category>();
@@ -79,7 +80,9 @@ public class CategoryActivity extends AppCompatActivity {
             top.items.add(item1);
             top.items.add(item2);
             categories.add(top);
-            //System.out.println("top!"+topArrayList);
+
+            topString = ((categoryNow.getTop()).toString()).replaceAll("\\[","").replaceAll("\\]","");
+            topText.setText("상의: "+topString);
         }
         if (!bottomArrayList.isEmpty()) {
             Category bottom = new Category();
@@ -90,9 +93,10 @@ public class CategoryActivity extends AppCompatActivity {
             ItemInfo item1 = new ItemInfo("data:image/jpeg;base64,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",
                     "청바지1", "7000", "3", "긴청바지");
             bottom.items.add(item1);
-            //System.out.println("하의:"+bottom.items);
             categories.add(bottom);
-            //System.out.println("bottom!"+bottomArrayList);
+
+            bottomString =  ((categoryNow.getBottom()).toString()).replaceAll("\\[","").replaceAll("\\]","");
+            bottomText.setText("하의: "+bottomString);
         }
         if (!outerArrayList.isEmpty()) {
             Category outer = new Category();
@@ -110,7 +114,9 @@ public class CategoryActivity extends AppCompatActivity {
             outer.items.add(item2);
             outer.items.add(item3);
             categories.add(outer);
-            System.out.println("outer!");
+
+            outerString =  ((categoryNow.getOuter()).toString()).replaceAll("\\[","").replaceAll("\\]","");
+            outerText.setText("아우터: "+outerString);
         }
         if (!dressArrayList.isEmpty()) {
             Category dress = new Category();
@@ -119,7 +125,9 @@ public class CategoryActivity extends AppCompatActivity {
             dress.items = new ArrayList<ItemInfo>();
 
             categories.add(dress);
-            System.out.println("dress!");
+
+            dressString =  ((categoryNow.getDress()).toString()).replaceAll("\\[","").replaceAll("\\]","");
+            dressText.setText("원피스: "+dressString);
         }
         if (!accessoryArrayList.isEmpty()) {
             Category accessory = new Category();
@@ -131,10 +139,11 @@ public class CategoryActivity extends AppCompatActivity {
                     "목도리1", "3000", "7", "목도리");
             accessory.items.add(item1);
             categories.add(accessory);
-            System.out.println("accessory");
+
+            accessoryString =  ((categoryNow.getAccessory()).toString()).replaceAll("\\[","").replaceAll("\\]","");
+            accessoryText.setText("액세서리: "+accessoryString);
         }
 
-        System.out.println("Categories size: "+categories.size());
         return categories;
     }
 
@@ -193,7 +202,7 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
     // 기온별 옷차림
-    private void prepareCategory(){
+    private CategoryInfo prepareCategory(){
         Intent intent = getIntent();
         int temp = intent.getExtras().getInt("temp");
         int feel = intent.getExtras().getInt("feel");
@@ -220,8 +229,11 @@ public class CategoryActivity extends AppCompatActivity {
             outerArrayList.add("롱패딩");
             outerArrayList.add("롱코트");
             accessoryArrayList.add("목도리");
-            System.out.println("0도!");
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, outerArrayList, null, accessoryArrayList));
+            //CategoryInfo zero = categoryInfoArrayList.get(0);
+            //zero.getTop();
+            //System.out.println("0도!"+categoryInfoArrayList.get(categoryInfoArrayList.size()-1).getTop());
+            return categoryInfoArrayList.get(categoryInfoArrayList.size()-1);
         }
         if (5 <= temp && temp <= 8) {//약간 추운 날씨
             topArrayList.add("맨투맨");
@@ -272,7 +284,6 @@ public class CategoryActivity extends AppCompatActivity {
             bottomArrayList.add("긴청바지");
             bottomArrayList.add("슬랙스");
             bottomArrayList.add("롱스커트");
-            System.out.println("23도!");
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, null, null, null));
         }
         if(feel >= 25 && humidity > 50){//덥고 습한 날씨
@@ -281,7 +292,7 @@ public class CategoryActivity extends AppCompatActivity {
             bottomArrayList.add("반바지");
             bottomArrayList.add("와이드팬츠");
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, null, null, null));
-        } else if(feel < 27){//약간 더운 날씨
+        } else if(feel >= 25 && feel < 27){//약간 더운 날씨
             topArrayList.add("반팔티");
             topArrayList.add("긴팔셔츠");
             bottomArrayList.add("긴청바지");
@@ -308,5 +319,6 @@ public class CategoryActivity extends AppCompatActivity {
             dressArrayList.add("반팔원피스(롱)");
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, null, dressArrayList, null));
         }
+        return categoryInfoArrayList.get(categoryInfoArrayList.size()-1);
     }
 }
