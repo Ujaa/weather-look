@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
     LocationManager locationManager;
 
     Double lat,lon;
-    int temp;
+    int temp, feel, humid;
 
     class Weather extends AsyncTask<String,Void,String> {//First String means URL is in String, Void mean nothing, Third String means Return type will be String
 
@@ -197,7 +197,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),CategoryActivity.class);
-                intent.putExtra("temp",temp);
+                intent.putExtra("temp", temp);
+                intent.putExtra("feel", feel);
+                intent.putExtra("humidity",humid);
                 startActivity(intent);
             }
         });
@@ -229,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
             String main = "";
             String temperature = "";
             String humidity = "";
+            String feels = "";
 
             for(int i=0;i<array.length();i++){
                 JSONObject weatherPart = array.getJSONObject(i);
@@ -276,9 +279,16 @@ public class MainActivity extends AppCompatActivity {
             JSONObject mainPart = new JSONObject(mainTemperature);
             temperature = mainPart.getString("temp");
             humidity = mainPart.getString("humidity");
+            feels = mainPart.getString("feels_like");
+
 
             temp = (int) Double.parseDouble(temperature);
             temp = temp - 273; //절대온도를 섭씨온도로 바꿔주는 작업
+
+            feel = (int) Double.parseDouble(feels);
+            feel = feel - 273; // 절대온도를 섭씨온도로 바꿔주는 작업
+
+            humid = (int) Double.parseDouble(humidity);
 
             String resultText="날씨 : "+main+"\n습도 : "+humidity+"%";
 

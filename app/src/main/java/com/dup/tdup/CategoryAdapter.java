@@ -1,98 +1,56 @@
 package com.dup.tdup;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+// <희> 상위 카테고리를 표시할 vertical recyclerview
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
-    private ItemInfo[] itemInfoArr;
+
     private Context context;
-    //private View.OnClickListener onClickItem;
-    private OnClickListener mListener;
+    public ArrayList<Category> categories;
 
-    public interface OnClickListener{
-        void onClick(int position);
-    }
-
-    public void setOnClickListener(OnClickListener listener){
-        mListener = listener;
-    }
-
-    public CategoryAdapter(final Context _context, final ItemInfo[] _itemArr) {
-        this.context = _context;
-        this.itemInfoArr = _itemArr;
-        /*
-        onClickItem = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String str = (String) view.getTag();
-                int position = getAdapterPosition();
-                Intent intent = new Intent(context.getApplicationContext(), DetailActivity.class);
-
-                intent.putExtra("img", itemInfoList.get(position).imgSrc);
-                intent.putExtra("name", itemInfoList.get(position).name);
-                intent.putExtra("price", itemInfoList.get(position).price);
-
-                context.startActivity(intent);
-            }
-        };
-
-         */
+    public CategoryAdapter(Context context, ArrayList<Category> categories) {
+        this.context = context;
+        this.categories = categories;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_category, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.single_category, parent, false);
         return new ViewHolder(view);
     }
 
-
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-        Glide.with(context)
-                .asBitmap()
-                .load(itemInfoArr[position].imgSrc)
-                .into(holder.itemImageView);
-
-        //holder.itemImageView.setOnClickListener(onClickItem);
-        holder.itemImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String str = (String) view.getTag();
-                Intent intent = new Intent(context.getApplicationContext(), DetailActivity.class);
-
-                intent.putExtra("img", itemInfoArr[position].imgSrc);
-                intent.putExtra("name", itemInfoArr[position].name);
-                intent.putExtra("price", itemInfoArr[position].price);
-                intent.putExtra("itemID", itemInfoArr[position].itemID);
-                intent.putExtra("category", itemInfoArr[position].category);
-
-                context.startActivity(intent);
-            }
-        });
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        public ImageView itemImageView;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            itemImageView = itemView.findViewById(R.id.category_item_img);
-        }
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.recyclerView.setAdapter(new ItemAdapter(context, categories.get(position).items));
+        holder.recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        holder.recyclerView.setHasFixedSize(true);
+        holder.tvHeading.setText(categories.get(position).categoryName);
     }
 
     @Override
     public int getItemCount() {
-        return 3;
+        return categories.size();
+    }
+
+    // 보여줄 항목: 하위 카테고리를 표시할 horizontal recyclerview, 상위 카테고리 이름
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        RecyclerView recyclerView;
+        TextView tvHeading;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            recyclerView = (RecyclerView) itemView.findViewById(R.id.rvItems);
+            tvHeading = (TextView) itemView.findViewById(R.id.tvCategoryName);
+        }
     }
 }
