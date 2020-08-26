@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_category"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -24,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="코디 보기"
+        android:textColor="#454545"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -36,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
+        android:tint="#251C1C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -60,6 +63,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="90dp"
         android:text="상의: x"
+        android:textColor="#454545"
         app:layout_constraintBottom_toTopOf="@+id/tvBottom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,6 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="하의: x"
+        android:textColor="#454545"
         app:layout_constraintBottom_toTopOf="@+id/tvOuter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTop" />
@@ -80,6 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="아우터: x"
+        android:textColor="#454545"
         app:layout_constraintBottom_toTopOf="@+id/tvDress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBottom" />
@@ -90,6 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="원피스: x"
+        android:textColor="#454545"
         app:layout_constraintBottom_toTopOf="@+id/tvAccessory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvOuter" />
@@ -100,6 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:text="액세서리: x"
+        android:textColor="#454545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDress" />
 
