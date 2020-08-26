@@ -1,4 +1,85 @@
 package com.dup.tdup;
+/*
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import org.opencv.android.OpenCVLoader;
+
+public class MainActivity extends AppCompatActivity
+{
+    //Load libs
+    static
+    {System.loadLibrary("native-lib");
+    OpenCVLoader.initDebug();}
+
+    private Button btn_fit_outfit;
+    private Button btn_add_outfit;
+    private Button btn_img_download;
+    private TextView textView_add_outfit;
+    private TextView textView_fit_outfit;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        PermissionManager permissionManager = new PermissionManager(this);
+        permissionManager.requestPerms();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btn_fit_outfit = (Button) findViewById(R.id.button_fit_outfit);
+        btn_add_outfit = (Button) findViewById(R.id.button_add_outfit);
+        btn_img_download = (Button) findViewById(R.id.button_image_download);
+        textView_add_outfit = (TextView) findViewById(R.id.textview_add_outfit);
+        textView_fit_outfit = (TextView) findViewById(R.id.text_view_fit_outfit);
+
+        btn_fit_outfit.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(v == btn_fit_outfit) //start gallery activity
+                {
+                    Intent intent = new Intent(MainActivity.this, SelectOutfitActivity.class);
+                    MainActivity.this.startActivity(intent);
+                }
+            }
+        });//end btn_fit_outfit onClick
+
+        btn_add_outfit.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(v == btn_add_outfit) //start gallery activity
+                {
+                    Intent intent = new Intent(MainActivity.this, AddOutfitActivity.class);
+                    MainActivity.this.startActivity(intent);
+                }
+            }
+        });//end btn_add_outfit onClick
+
+        btn_img_download.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                if(v ==  btn_img_download) //start gallery activity
+                {
+                    Intent intent = new Intent(MainActivity.this, ImageDownloadActivity.class);
+                    MainActivity.this.startActivity(intent);
+                }
+            }
+        });//end btn_add_outfit onClick
+
+    }//End onCreate
+}//End activity
+
+
+ */
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
@@ -50,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     Button gpsButton,showFashionButton;
-    TextView result,loc,tempText,time;
+    TextView result,loc,tempText,time,comment;
     ImageView weatherimg;
 
     LocationManager locationManager;
@@ -95,17 +176,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //로딩화면 생성
-        /*
-        Intent intent = new Intent(this, LoadingActivity.class);
-        startActivity(intent);
-         */
+        PermissionManager permissionManager = new PermissionManager(this);
+        permissionManager.requestPerms();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        PermissionManager permissionManager = new PermissionManager(this);
-        permissionManager.requestPerms();
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(permission_list, 0);
@@ -137,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
         tempText = findViewById(R.id.temp);
         weatherimg = findViewById(R.id.icon);
         time = findViewById(R.id.time);
+        comment=findViewById(R.id.textView3);
         getMyLocation();
         String content;
         Weather weather = new Weather();
@@ -222,6 +298,7 @@ public class MainActivity extends AppCompatActivity {
 
             //How we will show this result on screen
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -230,6 +307,86 @@ public class MainActivity extends AppCompatActivity {
         Date currentTime = Calendar.getInstance().getTime();
         String data_text = new SimpleDateFormat("MM월 dd일 EE요일", Locale.getDefault()).format(currentTime);
         time.setText(data_text);
+
+        if(humid>=0&&humid<40) {
+            if(feel < -3) {
+                comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n 특별히 많이 건조하니 정전기에 유의하세요!\n 그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
+            }
+            else if(feel >= -3 && temp <= 4) {
+                comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n 감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
+            }
+            else if(5 <= temp && temp <= 8) {
+                comment.setText("오늘은 많이 쌀쌀해요.\n 겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
+            }
+            else if(9 <= temp && temp <= 11) {
+                comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n 이런 날씨에 감기가 잘 걸리니 주의하세요!");
+            }
+            else if(12 <= temp && temp <= 17) {
+                comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n 얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
+            }
+            else if(18 <= temp && feel < 23) {
+                comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n 더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요! ");
+            }
+            else if(23 <= feel && feel < 27) {
+                comment.setText("오늘은 꽤 더운 날씨입니다.\n 외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+            }
+            else {
+                comment.setText("오늘은 매우 매우 더운 날씨입니다.\n 얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
+            }
+        }
+        else if(humid>=40&&humid<60) {
+            if(feel < -3) {
+                comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n 그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
+            }
+            else if(feel >= -3 && temp <= 4) {
+                comment.setText("오늘은 날씨가 꽤 추워요.\n 감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
+            }
+            else if(5 <= temp && temp <= 8) {
+                comment.setText("오늘은 많이 쌀쌀해요.\n 겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
+            }
+            else if(9 <= temp && temp <= 11) {
+                comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n 이런 날씨에 감기가 잘 걸리니 주의하세요!");
+            }
+            else if(12 <= temp && temp <= 17) {
+                comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n 얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
+            }
+            else if(18 <= temp && feel < 23) {
+                comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n 더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
+            }
+            else if(23 <= feel && feel < 27) {
+                comment.setText("오늘은 꽤 더운 날씨입니다.\n 외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+            }
+            else {
+                comment.setText("오늘은 매우 매우 더운 날씨입니다.\n 얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
+            }
+        }
+        else {
+            if(feel < -3) {
+                comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n 그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
+            }
+            else if(feel >= -3 && temp <= 4) {
+                comment.setText("오늘은 날씨가 꽤 추워요.\n 감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
+            }
+            else if(5 <= temp && temp <= 8) {
+                comment.setText("오늘은 많이 쌀쌀해요.\n 겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
+            }
+            else if(9 <= temp && temp <= 11) {
+                comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n 이런 날씨에 감기가 잘 걸리니 주의하세요!");
+            }
+            else if(12 <= temp && temp <= 17) {
+                comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n 얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
+            }
+            else if(18 <= temp && feel < 23) {
+                comment.setText("오늘은 약간 덥고 습하다고 느껴질 수 있는 날씨에요.\n 더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
+            }
+            else if(23 <= feel && feel < 27) {
+                comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n 외출을 한다면 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+            }
+            else {
+                comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n 얇고 시원하면서 몸에 많이 달라붙지 않는 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
+            }
+            //계절이나 날씨(눈,비,안개 관련된 사항에 관해 상의)
+        }
     }
 
 
@@ -309,6 +466,7 @@ public class MainActivity extends AppCompatActivity {
         public void onStatusChanged(String provider, int status, Bundle extras) {
 
         }
+
     }
 
 }
