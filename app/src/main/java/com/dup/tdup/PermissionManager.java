@@ -15,7 +15,9 @@ public class PermissionManager extends AppCompatActivity
     private boolean allPermissionsGranted = false;
     private String[] permissionList = {Manifest.permission.CAMERA,
             Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE};
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION};
     private final int REQUEST_CODE = 999;
     public PermissionManager(Activity act){this.act = act;}
 

@@ -126,10 +126,10 @@ public class MainActivity extends AppCompatActivity {
     {System.loadLibrary("native-lib");
         OpenCVLoader.initDebug();}
 
-    String [] permission_list = {
-            Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_COARSE_LOCATION
-    };
+//    String [] permission_list = {
+//            Manifest.permission.ACCESS_FINE_LOCATION,
+//            Manifest.permission.ACCESS_COARSE_LOCATION
+//    };
 
     Button gpsButton,showFashionButton;
     TextView result,loc,tempText,time,comment;
@@ -178,13 +178,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         PermissionManager permissionManager = new PermissionManager(this);
-        permissionManager.requestPerms();
+        //permissionManager.requestPerms();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //requestPermissions(permission_list, 0);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(permission_list, 0);
+            //requestPermissions(permission_list, 0);
+            permissionManager.requestPerms();
         }else{
             getMyLocation();
         }
