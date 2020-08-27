@@ -224,7 +224,7 @@ public class CategoryActivity extends AppCompatActivity {
                             itemPrice = el.select("div[class=price]>span").text();
                             itemID = el.select("a[class=item_link]").attr("href");
                             itemCategory = "trousers";
-                            if(url=="https://codibook.net/codi/7979281" || url=="https://codibook.net/codi/7978096") itemCategory = "shorts_n_skirks";
+                            if(url=="https://codibook.net/codi/7979281" || url=="https://codibook.net/codi/7978096") itemCategory = "shorts_n_skirts";
 
                             BottomitemInfoArrayList.add(new ItemInfo(itemImgSrc, itemName, itemPrice, itemID, itemCategory));
                         }
@@ -364,9 +364,9 @@ public class CategoryActivity extends AppCompatActivity {
         int feel = intent.getExtras().getInt("feel");
         int humidity = intent.getExtras().getInt("humidity");
         // <희> 테스트용으로 temp, feel, humidity 설정
-//        temp = -10;
-//        feel = -10;
-//        humidity = 0;
+//        temp = 30;
+//        feel = 30;
+//        humidity = 10;
         if (feel < -3){//매우 추운 날씨
             topArrayList.add("터틀넥");
             topArrayList.add("후드티");
