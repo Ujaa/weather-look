@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     LocationManager locationManager;
 
     Double lat,lon;
-    int temp, feel, humid;
+    int temp=-100, feel, humid;
 
     class Weather extends AsyncTask<String,Void,String> {//First String means URL is in String, Void mean nothing, Third String means Return type will be String
 
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             getMyLocation();
         }
-        search2();
+        search2(gpsButton);
     }
 
     @Override
@@ -198,17 +198,21 @@ public class MainActivity extends AppCompatActivity {
         showFashionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),CategoryActivity.class);
-                intent.putExtra("temp", temp);
-                intent.putExtra("feel", feel);
-                intent.putExtra("humidity",humid);
-                startActivity(intent);
+                if(temp==-100){
+                    Toast.makeText(getApplicationContext(), "GPS를 키고 GPS아이콘을 눌러주세요", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
+                    intent.putExtra("temp", temp);
+                    intent.putExtra("feel", feel);
+                    intent.putExtra("humidity", humid);
+                    startActivity(intent);
+                }
             }
         });
     }
 
 
-    public void search2(){//위치를 받아서 날씨 찾기
+    public void search2(View view){//위치를 받아서 날씨 찾기
         result=findViewById(R.id.textView);
         gpsButton = findViewById(R.id.gpsButton);
         tempText = findViewById(R.id.temp);
@@ -311,84 +315,63 @@ public class MainActivity extends AppCompatActivity {
         String data_text = new SimpleDateFormat("MM월 dd일 EE요일", Locale.getDefault()).format(currentTime);
         time.setText(data_text);
 
-        if(humid>=0&&humid<40) {
-            if(feel < -3) {
-                comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
+        if(temp!=-100) {
+            if (humid >= 0 && humid < 40) {
+                if (feel < -3) {
+                    comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
+                } else if (feel >= -3 && temp <= 4) {
+                    comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
+                } else if (5 <= temp && temp <= 8) {
+                    comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
+                } else if (9 <= temp && temp <= 11) {
+                    comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!");
+                } else if (12 <= temp && temp <= 17) {
+                    comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
+                } else if (18 <= temp && feel < 23) {
+                    comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요! ");
+                } else if (23 <= feel && feel < 27) {
+                    comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+                } else {
+                    comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
+                }
+            } else if (humid >= 40 && humid < 60) {
+                if (feel < -3) {
+                    comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
+                } else if (feel >= -3 && temp <= 4) {
+                    comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
+                } else if (5 <= temp && temp <= 8) {
+                    comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
+                } else if (9 <= temp && temp <= 11) {
+                    comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!");
+                } else if (12 <= temp && temp <= 17) {
+                    comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
+                } else if (18 <= temp && feel < 23) {
+                    comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
+                } else if (23 <= feel && feel < 27) {
+                    comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+                } else {
+                    comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
+                }
+            } else {
+                if (feel < -3) {
+                    comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
+                } else if (feel >= -3 && temp <= 4) {
+                    comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
+                } else if (5 <= temp && temp <= 8) {
+                    comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
+                } else if (9 <= temp && temp <= 11) {
+                    comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!");
+                } else if (12 <= temp && temp <= 17) {
+                    comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
+                } else if (18 <= temp && feel < 23) {
+                    comment.setText("오늘은 약간 덥고 습하다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
+                } else if (23 <= feel && feel < 27) {
+                    comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출을 한다면 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+                } else {
+                    comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원하면서 몸에 많이 달라붙지 않는 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
+                }
+                //계절이나 날씨(눈,비,안개 관련된 사항에 관해 상의)
             }
-            else if(feel >= -3 && temp <= 4) {
-                comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
-            }
-            else if(5 <= temp && temp <= 8) {
-                comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
-            }
-            else if(9 <= temp && temp <= 11) {
-                comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!");
-            }
-            else if(12 <= temp && temp <= 17) {
-                comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
-            }
-            else if(18 <= temp && feel < 23) {
-                comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요! ");
-            }
-            else if(23 <= feel && feel < 27) {
-                comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
-            }
-            else {
-                comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
-            }
-        }
-        else if(humid>=40&&humid<60) {
-            if(feel < -3) {
-                comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
-            }
-            else if(feel >= -3 && temp <= 4) {
-                comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
-            }
-            else if(5 <= temp && temp <= 8) {
-                comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
-            }
-            else if(9 <= temp && temp <= 11) {
-                comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!");
-            }
-            else if(12 <= temp && temp <= 17) {
-                comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
-            }
-            else if(18 <= temp && feel < 23) {
-                comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
-            }
-            else if(23 <= feel && feel < 27) {
-                comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
-            }
-            else {
-                comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
-            }
-        }
-        else {
-            if(feel < -3) {
-                comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
-            }
-            else if(feel >= -3 && temp <= 4) {
-                comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
-            }
-            else if(5 <= temp && temp <= 8) {
-                comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
-            }
-            else if(9 <= temp && temp <= 11) {
-                comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!");
-            }
-            else if(12 <= temp && temp <= 17) {
-                comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
-            }
-            else if(18 <= temp && feel < 23) {
-                comment.setText("오늘은 약간 덥고 습하다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
-            }
-            else if(23 <= feel && feel < 27) {
-                comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출을 한다면 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
-            }
-            else {
-                comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원하면서 몸에 많이 달라붙지 않는 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
-            }
-            //계절이나 날씨(눈,비,안개 관련된 사항에 관해 상의)
         }
     }
 

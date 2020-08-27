@@ -28,6 +28,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/location_icon"
+        android:onClick="search2"
         app:layout_constraintStart_toStartOf="@+id/fashion_btn"
         app:layout_constraintTop_toTopOf="parent" />
 
