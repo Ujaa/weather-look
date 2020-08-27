@@ -78,9 +78,9 @@
         android:text="없음"
         android:gravity="center_horizontal"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+        app:layout_constraintEnd_toEndOf="@+id/top_icon_imgview"
+        app:layout_constraintStart_toStartOf="@+id/top_icon_imgview"
+        app:layout_constraintTop_toBottomOf="@+id/top_icon_imgview" />
 
     <TextView
         android:id="@+id/tvBottom"
@@ -90,9 +90,9 @@
         android:text="없음"
         android:textColor="#FFFFFF"
         android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintEnd_toEndOf="@+id/bottom_icon_imgview"
+        app:layout_constraintStart_toStartOf="@+id/bottom_icon_imgview"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_icon_imgview" />
 
     <TextView
         android:id="@+id/tvOuter"
@@ -102,9 +102,9 @@
         android:text="없음"
         android:textColor="#FFFFFF"
         android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintEnd_toEndOf="@+id/outer_icon_imgview"
+        app:layout_constraintStart_toStartOf="@+id/outer_icon_imgview"
+        app:layout_constraintTop_toBottomOf="@+id/outer_icon_imgview" />
 
     <TextView
         android:id="@+id/tvDress"
@@ -114,9 +114,9 @@
         android:text="없음"
         android:textColor="#FFFFFF"
         android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintEnd_toEndOf="@+id/dress_icon_imgview"
+        app:layout_constraintStart_toStartOf="@+id/dress_icon_imgview"
+        app:layout_constraintTop_toBottomOf="@+id/dress_icon_imgview" />
 
     <TextView
         android:id="@+id/tvAccessory"
@@ -126,39 +126,39 @@
         android:text="없음"
         android:textColor="#FFFFFF"
         android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/acc_icon_imgview"
+        app:layout_constraintStart_toStartOf="@+id/acc_icon_imgview"
+        app:layout_constraintTop_toBottomOf="@+id/acc_icon_imgview" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/acc_icon_imgview"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="25dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/dress_icon_imgview"
+        app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
         app:srcCompat="@drawable/acc_icon" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/bottom_icon_imgview"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginEnd="25dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/outer_icon_imgview"
+        app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
         app:srcCompat="@drawable/bottom_icon" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/dress_icon_imgview"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="25dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/outer_icon_imgview"
+        app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
         app:srcCompat="@drawable/dress_icon" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/outer_icon_imgview"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="30dp"
@@ -168,12 +168,12 @@
         app:srcCompat="@drawable/outer_icon" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/top_icon_imgview"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginEnd="25dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_icon_imgview"
+        app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
         app:srcCompat="@drawable/top_icon" />
 
     <TextView

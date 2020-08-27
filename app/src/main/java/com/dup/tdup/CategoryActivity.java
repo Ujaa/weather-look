@@ -2,6 +2,7 @@ package com.dup.tdup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,6 +77,13 @@ public class CategoryActivity extends AppCompatActivity {
         TextView dressText = (TextView) findViewById(R.id.tvDress);
         TextView accessoryText = (TextView) findViewById(R.id.tvAccessory);
 
+        // 옷 카테고리 아이콘
+        ImageView topIV = (ImageView) findViewById(R.id.top_icon_imgview);
+        ImageView bottomIV = (ImageView) findViewById(R.id.bottom_icon_imgview);
+        ImageView outerIV = (ImageView) findViewById(R.id.outer_icon_imgview);
+        ImageView dressIV = (ImageView) findViewById(R.id.dress_icon_imgview);
+        ImageView accessoryIV = (ImageView) findViewById(R.id.acc_icon_imgview);
+
         // TextView 에 setText 하기 전, [중괄호]를 없애기 위한 임시 문자열
         String topString, bottomString, outerString, dressString, accessoryString;
 
@@ -84,6 +92,7 @@ public class CategoryActivity extends AppCompatActivity {
         // 표시할 카테고리와 아이템 종류 갖고오기
         ArrayList<Category> categories = new ArrayList<Category>();
         if (!topArrayList.isEmpty()) {
+            topIV.setImageResource(R.drawable.top_icon);
             Category top = new Category();
             top.categoryName = "상의";
             top.itemCategory = topArrayList;
@@ -97,8 +106,12 @@ public class CategoryActivity extends AppCompatActivity {
 
             topString = ((categoryNow.getTop()).toString()).replaceAll("\\[","").replaceAll(", ","\n").replaceAll("\\]","");
             topText.setText(topString);
+        }else{
+            topIV.setImageResource(R.drawable.no_top_icon);
+            topText.setText("없음");
         }
         if (!bottomArrayList.isEmpty()) {
+            bottomIV.setImageResource(R.drawable.bottom_icon);
             Category bottom = new Category();
             bottom.categoryName = "하의";
             bottom.itemCategory = bottomArrayList;
@@ -111,8 +124,12 @@ public class CategoryActivity extends AppCompatActivity {
 
             bottomString =  ((categoryNow.getBottom()).toString()).replaceAll("\\[","").replaceAll(", ","\n").replaceAll("\\]","");
             bottomText.setText(bottomString);
+        }else{
+            bottomIV.setImageResource(R.drawable.no_bottom_icon);
+            bottomText.setText("없음");
         }
         if (!outerArrayList.isEmpty()) {
+            outerIV.setImageResource(R.drawable.outer_icon);
             Category outer = new Category();
             outer.categoryName = "아우터";
             outer.itemCategory = outerArrayList;
@@ -123,10 +140,14 @@ public class CategoryActivity extends AppCompatActivity {
             }
             categories.add(outer);
 
-            outerString =  ((categoryNow.getOuter()).toString()).replaceAll("\\[","").replaceAll("\\]","");
-            outerText.setText("아우터: "+outerString);
+            outerString =  ((categoryNow.getOuter()).toString()).replaceAll("\\[","").replaceAll(", ","\n").replaceAll("\\]","");
+            outerText.setText(outerString);
+        }else{
+            outerIV.setImageResource(R.drawable.no_outer_icon);
+            outerText.setText("없음");
         }
         if (!dressArrayList.isEmpty()) {
+            dressIV.setImageResource(R.drawable.dress_icon);
             Category dress = new Category();
             dress.categoryName = "원피스";
             dress.itemCategory = dressArrayList;
@@ -137,10 +158,14 @@ public class CategoryActivity extends AppCompatActivity {
             }
             categories.add(dress);
 
-            dressString =  ((categoryNow.getDress()).toString()).replaceAll("\\[","").replaceAll("\\]","");
-            dressText.setText("원피스: "+dressString);
+            dressString =  ((categoryNow.getDress()).toString()).replaceAll("\\[","").replaceAll(", ","\n").replaceAll("\\]","");
+            dressText.setText(dressString);
+        }else{
+            dressIV.setImageResource(R.drawable.no_dress_icon);
+            dressText.setText("없음");
         }
         if (!accessoryArrayList.isEmpty()) {
+            accessoryIV.setImageResource(R.drawable.acc_icon);
             Category accessory = new Category();
             accessory.categoryName = "액세서리";
             accessory.itemCategory = accessoryArrayList;
@@ -151,8 +176,11 @@ public class CategoryActivity extends AppCompatActivity {
             }
             categories.add(accessory);
 
-            accessoryString =  ((categoryNow.getAccessory()).toString()).replaceAll("\\[","").replaceAll("\\]","");
-            accessoryText.setText("액세서리: "+accessoryString);
+            accessoryString =  ((categoryNow.getAccessory()).toString()).replaceAll("\\[","").replaceAll(", ","\n").replaceAll("\\]","");
+            accessoryText.setText(accessoryString);
+        }else{
+            accessoryIV.setImageResource(R.drawable.no_acc_icon);
+            accessoryText.setText("없음");
         }
 
         return categories;
