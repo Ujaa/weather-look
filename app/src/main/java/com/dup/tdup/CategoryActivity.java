@@ -95,8 +95,8 @@ public class CategoryActivity extends AppCompatActivity {
             }
             categories.add(top);
 
-            topString = ((categoryNow.getTop()).toString()).replaceAll("\\[","").replaceAll("\\]","");
-            topText.setText("상의: "+topString);
+            topString = ((categoryNow.getTop()).toString()).replaceAll("\\[","").replaceAll(", ","\n").replaceAll("\\]","");
+            topText.setText(topString);
         }
         if (!bottomArrayList.isEmpty()) {
             Category bottom = new Category();
@@ -109,8 +109,8 @@ public class CategoryActivity extends AppCompatActivity {
             }
             categories.add(bottom);
 
-            bottomString =  ((categoryNow.getBottom()).toString()).replaceAll("\\[","").replaceAll("\\]","");
-            bottomText.setText("하의: "+bottomString);
+            bottomString =  ((categoryNow.getBottom()).toString()).replaceAll("\\[","").replaceAll(", ","\n").replaceAll("\\]","");
+            bottomText.setText(bottomString);
         }
         if (!outerArrayList.isEmpty()) {
             Category outer = new Category();
