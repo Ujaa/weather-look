@@ -241,13 +241,12 @@ public class MainActivity extends AppCompatActivity {
             String humidity = "";
             String feels = "";
 
-            for(int i=0;i<array.length();i++){
-                JSONObject weatherPart = array.getJSONObject(i);
-                main = weatherPart.getString("main");
-            }
+            JSONObject weatherPart = array.getJSONObject(0);
+            main = weatherPart.getString("main");
+
 
             switch (main){
-                case "Thunderstom" :
+                case "Thunderstorm" :
                     main = "천둥";
                     weatherimg.setImageResource(R.drawable.thunder);
                     break;
