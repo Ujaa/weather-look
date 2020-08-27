@@ -100,6 +100,7 @@ import android.os.Build;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -187,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             getMyLocation();
         }
+        search2();
     }
 
     @Override
@@ -206,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void search2(View view){//위치를 받아서 날씨 찾기
+    public void search2(){//위치를 받아서 날씨 찾기
         result=findViewById(R.id.textView);
         gpsButton = findViewById(R.id.gpsButton);
         tempText = findViewById(R.id.temp);
@@ -394,6 +396,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void getMyLocation(){
         locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
+
+        //gps켜져있나 확인
+        if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) Toast.makeText(getApplicationContext(), "GPS를 켜주세요", Toast.LENGTH_SHORT).show();
+
         //권한 확인 작업
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED){
