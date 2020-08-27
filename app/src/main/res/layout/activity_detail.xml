@@ -6,92 +6,86 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-
     <ImageView
         android:id="@+id/item_img"
-        android:layout_width="357dp"
+        android:layout_width="320dp"
         android:layout_height="461dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="28dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="26dp"
         android:src="@mipmap/ic_launcher" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/white_imgview"
         android:layout_width="match_parent"
         android:layout_height="229dp"
-        android:layout_below="@+id/item_img"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="0dp"
         android:background="@drawable/radius_detail" />
 
-    <TextView
-        android:id="@+id/item_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="52dp"
-        android:text="아이템 이름"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#393939"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/item_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/item_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="100dp"
-        android:text="가격"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#393939" />
-
     <LinearLayout
-        android:layout_width="372dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/item_site"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_weight="2"
-            android:background="@drawable/radius_site_btn"
-            android:text="사이트로 이동"
-            android:elevation="50dp"
-            android:textColor="#4ACCFF"
-            android:textSize="14sp"
-            android:stateListAnimator="@null"
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="아이템 이름"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#393939"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/ar_fit_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_alignLeft="@+id/item_site"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="2"
-            android:background="@drawable/radius_fit_btn"
-            android:text="가상으로 입어보기"
-            android:stateListAnimator="@null"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="가격"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#393939" />
 
+        <LinearLayout
+            android:layout_width="372dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/item_site"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_weight="2"
+                android:background="@drawable/radius_site_btn"
+                android:elevation="50dp"
+                android:stateListAnimator="@null"
+                android:text="사이트로 이동"
+                android:textColor="#4ACCFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/ar_fit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="2"
+                android:background="@drawable/radius_fit_btn"
+                android:stateListAnimator="@null"
+                android:text="가상으로 입어보기"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
     </LinearLayout>
 
 
