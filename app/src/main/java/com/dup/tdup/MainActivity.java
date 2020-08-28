@@ -1,85 +1,4 @@
 package com.dup.tdup;
-/*
-import android.content.Intent;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import org.opencv.android.OpenCVLoader;
-
-public class MainActivity extends AppCompatActivity
-{
-    //Load libs
-    static
-    {System.loadLibrary("native-lib");
-    OpenCVLoader.initDebug();}
-
-    private Button btn_fit_outfit;
-    private Button btn_add_outfit;
-    private Button btn_img_download;
-    private TextView textView_add_outfit;
-    private TextView textView_fit_outfit;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        PermissionManager permissionManager = new PermissionManager(this);
-        permissionManager.requestPerms();
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        btn_fit_outfit = (Button) findViewById(R.id.button_fit_outfit);
-        btn_add_outfit = (Button) findViewById(R.id.button_add_outfit);
-        btn_img_download = (Button) findViewById(R.id.button_image_download);
-        textView_add_outfit = (TextView) findViewById(R.id.textview_add_outfit);
-        textView_fit_outfit = (TextView) findViewById(R.id.text_view_fit_outfit);
-
-        btn_fit_outfit.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                if(v == btn_fit_outfit) //start gallery activity
-                {
-                    Intent intent = new Intent(MainActivity.this, SelectOutfitActivity.class);
-                    MainActivity.this.startActivity(intent);
-                }
-            }
-        });//end btn_fit_outfit onClick
-
-        btn_add_outfit.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                if(v == btn_add_outfit) //start gallery activity
-                {
-                    Intent intent = new Intent(MainActivity.this, AddOutfitActivity.class);
-                    MainActivity.this.startActivity(intent);
-                }
-            }
-        });//end btn_add_outfit onClick
-
-        btn_img_download.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                if(v ==  btn_img_download) //start gallery activity
-                {
-                    Intent intent = new Intent(MainActivity.this, ImageDownloadActivity.class);
-                    MainActivity.this.startActivity(intent);
-                }
-            }
-        });//end btn_add_outfit onClick
-
-    }//End onCreate
-}//End activity
-
-
- */
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
@@ -125,11 +44,6 @@ public class MainActivity extends AppCompatActivity {
     static
     {System.loadLibrary("native-lib");
         OpenCVLoader.initDebug();}
-
-//    String [] permission_list = {
-//            Manifest.permission.ACCESS_FINE_LOCATION,
-//            Manifest.permission.ACCESS_COARSE_LOCATION
-//    };
 
     Button gpsButton,showFashionButton;
     TextView result,loc,tempText,time,comment;
