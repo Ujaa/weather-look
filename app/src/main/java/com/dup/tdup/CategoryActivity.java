@@ -61,10 +61,6 @@ public class CategoryActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(CategoryActivity.this);
         rvCategory.setLayoutManager(layoutManager);
         rvCategory.setAdapter(adapter);
-        
-        ImageButton goMain = (ImageButton)findViewById(R.id.goMain);
-        BtnListenerGo goListener = new BtnListenerGo();
-        goMain.setOnClickListener(goListener);
         //getImages();
         //initRecyclerView();
     }
@@ -502,13 +498,5 @@ public class CategoryActivity extends AppCompatActivity {
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, null, dressArrayList, accessoryArrayList));
         }
         return categoryInfoArrayList.get(categoryInfoArrayList.size()-1);
-    }
-    
-    class BtnListenerGo implements View.OnClickListener {
-        @Override
-        public void onClick(View view) {
-            Intent intentMain = new Intent(CategoryActivity.this, MainActivity.class);
-            startActivity(intentMain);
-        }
     }
 }
