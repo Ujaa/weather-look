@@ -396,8 +396,8 @@ public class CategoryActivity extends AppCompatActivity {
         int feel = intent.getExtras().getInt("feel");
         int humidity = intent.getExtras().getInt("humidity");
         // <희> 테스트용으로 temp, feel, humidity 설정
-//        temp = 30;
-//        feel = 30;
+//        temp = 33;
+//        feel = 33;
 //        humidity = 10;
         if (feel < -3){//매우 추운 날씨
             topArrayList.add("터틀넥");
@@ -412,7 +412,7 @@ public class CategoryActivity extends AppCompatActivity {
         }else if (feel >= -3 && temp <= 4) {
             topArrayList.add("맨투맨");
             topArrayList.add("두꺼운 긴팔니트");
-            bottomArrayList.add("청바지");
+            bottomArrayList.add("긴청바지");
             outerArrayList.add("숏패딩");
             outerArrayList.add("롱패딩");
             outerArrayList.add("롱코트");
@@ -422,7 +422,7 @@ public class CategoryActivity extends AppCompatActivity {
             //CategoryInfo zero = categoryInfoArrayList.get(0);
             //zero.getTop();
             //System.out.println("0도!"+categoryInfoArrayList.get(categoryInfoArrayList.size()-1).getTop());
-            return categoryInfoArrayList.get(categoryInfoArrayList.size()-1);
+            //return categoryInfoArrayList.get(categoryInfoArrayList.size()-1);
         }else if (5 <= temp && temp <= 8) {//약간 추운 날씨
             topArrayList.add("맨투맨");
             topArrayList.add("두꺼운 긴팔니트");
@@ -443,7 +443,7 @@ public class CategoryActivity extends AppCompatActivity {
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, outerArrayList, null, null));
         }else if (12 <= temp && temp <= 17) {//봄, 가을
             topArrayList.add("맨투맨");
-            topArrayList.add("긴팔 셔츠");
+            topArrayList.add("긴팔셔츠");
             topArrayList.add("블라우스");
             bottomArrayList.add("긴청바지");
             bottomArrayList.add("슬랙스");
@@ -464,7 +464,7 @@ public class CategoryActivity extends AppCompatActivity {
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, outerArrayList, null, null));
         }else if (23 <= feel && feel < 27) {//약간 더운 날씨
             topArrayList.add("반팔티");
-            topArrayList.add("긴팔 셔츠");
+            topArrayList.add("긴팔셔츠");
             bottomArrayList.add("긴청바지");
             bottomArrayList.add("슬랙스");
             bottomArrayList.add("롱스커트");
