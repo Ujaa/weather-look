@@ -141,6 +141,7 @@ public class CategoryActivity extends AppCompatActivity {
             categories.add(outer);
 
             outerString =  ((categoryNow.getOuter()).toString()).replaceAll("\\[","").replaceAll(", ","\n").replaceAll("\\]","");
+            outerString = outerString.replace("청자켓\n가죽자켓\n면자켓", "자켓");
             outerText.setText(outerString);
         }else{
             outerIV.setImageResource(R.drawable.no_outer_icon);
@@ -159,6 +160,9 @@ public class CategoryActivity extends AppCompatActivity {
             categories.add(dress);
 
             dressString =  ((categoryNow.getDress()).toString()).replaceAll("\\[","").replaceAll(", ","\n").replaceAll("\\]","");
+            dressString = dressString.replace("나시원피스(롱)\n나시원피스(숏)", "나시원피스")
+                    .replace("반팔원피스(롱)\n반팔원피스(숏)", "반팔원피스")
+                    .replace("긴팔원피스(롱)\n긴팔원피스(숏)", "긴팔원피스");
             dressText.setText(dressString);
         }else{
             dressIV.setImageResource(R.drawable.no_dress_icon);
