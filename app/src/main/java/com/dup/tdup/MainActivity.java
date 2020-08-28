@@ -182,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //requestPermissions(permission_list, 0);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //requestPermissions(permission_list, 0);
             permissionManager.requestPerms();
@@ -266,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
                     main = "맑음";
                     weatherimg.setImageResource(R.drawable.clear);
                     break;
-                case "Cloud" :
+                case "Clouds" :
                     main = "구름";
                     weatherimg.setImageResource(R.drawable.cloud);
                     break;
