@@ -182,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //requestPermissions(permission_list, 0);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //requestPermissions(permission_list, 0);
             permissionManager.requestPerms();
@@ -200,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(temp==-100){
-                    Toast.makeText(getApplicationContext(), "GPS를 키고 GPS아이콘을 눌러주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "GPS를 키고 GPS아이콘을 눌러주세요\n그래도 안된다면 설정에서 위치권한을 허용해 주세요", Toast.LENGTH_SHORT).show();
                 }else {
                     Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
                     intent.putExtra("temp", temp);
@@ -266,7 +265,7 @@ public class MainActivity extends AppCompatActivity {
                     main = "맑음";
                     weatherimg.setImageResource(R.drawable.clear);
                     break;
-                case "Cloud" :
+                case "Clouds" :
                     main = "구름";
                     weatherimg.setImageResource(R.drawable.cloud);
                     break;
@@ -381,7 +380,7 @@ public class MainActivity extends AppCompatActivity {
         locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
 
         //gps켜져있나 확인
-        if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) Toast.makeText(getApplicationContext(), "GPS를 켜주세요", Toast.LENGTH_SHORT).show();
+        if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) Toast.makeText(getApplicationContext(), "GPS를 켜주세요\n그래도 안된다면 설정에서 위치권한을 허용해 주세요", Toast.LENGTH_SHORT).show();
 
         //권한 확인 작업
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
