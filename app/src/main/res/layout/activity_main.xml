@@ -22,16 +22,6 @@
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="@+id/fashion_btn" />
 
-    <Button
-        android:id="@+id/gpsButton"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/location_icon"
-        android:onClick="search2"
-        app:layout_constraintStart_toStartOf="@+id/fashion_btn"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -54,6 +44,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/divider_horizontal_dim_dark" />
+
+    <Button
+        android:id="@+id/gpsButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/location_icon"
+        android:onClick="search2"
+        app:layout_constraintStart_toStartOf="@+id/fashion_btn"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/temp"

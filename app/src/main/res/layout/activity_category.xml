@@ -181,7 +181,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="오늘 추천된 옷은 무엇일까?"
+        android:text="오늘의 코디"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
