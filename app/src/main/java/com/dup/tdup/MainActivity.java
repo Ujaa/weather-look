@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
     TextView result,loc,tempText,time,comment;
     ImageView weatherimg;
 
+    String [] gpspermission_list = {
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+    };
+
     LocationManager locationManager;
 
     Double lat,lon;
@@ -114,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(temp==-100){
-                    Toast.makeText(getApplicationContext(), "GPS를 키고 GPS아이콘을 눌러주세요\n그래도 안된다면 설정에서 위치권한을 허용해 주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "GPS아이콘을 눌러주세요", Toast.LENGTH_SHORT).show();
                 }else {
                     Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
                     intent.putExtra("temp", temp);
@@ -881,12 +886,14 @@ public class MainActivity extends AppCompatActivity {
     public void getMyLocation(){
         locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
 
-        //gps켜져있나 확인
-        if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) Toast.makeText(getApplicationContext(), "GPS를 켜주세요\n그래도 안된다면 설정에서 위치권한을 허용해 주세요", Toast.LENGTH_SHORT).show();
-
         //권한 확인 작업
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED){
+            if(checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
+                Toast.makeText(getApplicationContext(), "설정가서 위치허용을 해주세요", Toast.LENGTH_SHORT).show();
+                requestPermissions(gpspermission_list, 0);
+                return;
+            }else if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+                Toast.makeText(getApplicationContext(), "GPS를 켜주세요", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
