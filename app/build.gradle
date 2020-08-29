@@ -4,7 +4,7 @@ apply plugin: 'jacoco'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.dup.tdup"
+        applicationId "org.sookmyung.weatherlook"
         minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
