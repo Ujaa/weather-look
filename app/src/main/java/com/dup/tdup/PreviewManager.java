@@ -33,6 +33,8 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -85,7 +87,9 @@ public class PreviewManager extends Fragment implements FragmentCompat.OnRequest
         public void onSurfaceTextureAvailable(SurfaceTexture texture, int width, int height)
         {
             try {openCamera(width, height); Log.d(TAG, " camera has opened. . .");}
-            catch(CameraAccessException e){Log.d(TAG, " camera can not opened ![STL]");}
+            catch(CameraAccessException e){
+                Toast.makeText(getContext(), "설정에서 카메라 권한을 허용해 주세요", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, " camera can not opened ![STL]");}
         }
         @Override
         public void onSurfaceTextureSizeChanged(SurfaceTexture texture, int width, int height)
@@ -220,7 +224,9 @@ public class PreviewManager extends Fragment implements FragmentCompat.OnRequest
             try
             {openCamera(autoFitTextureView.getWidth(),autoFitTextureView.getHeight());}
             catch (CameraAccessException e)
-            {Log.d(TAG, " camera can not be opened [CameraAccessException]");}
+            {
+                Toast.makeText(getContext(), "설정에서 카메라 권한을 허용해 주세요", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, " camera can not be opened [CameraAccessException]");}
         }
         else
         {
@@ -399,9 +405,17 @@ public class PreviewManager extends Fragment implements FragmentCompat.OnRequest
 
 
     @SuppressLint("MissingPermission")
-    private void openCamera(int width, int height) throws CameraAccessException
+    public void openCamera(int width, int height) throws CameraAccessException
     {
-        //permissionManager.getPermissions(getActivity());//get required permissions
+        boolean permm = PermissionManager.checkPermissions();//get required permissions
+
+
+        if (permm ==false){
+            Toast.makeText(getContext(), "설정에서 카메라 권한을 허용해 주세요", Toast.LENGTH_SHORT).show();
+        }
+
+        //PermissionManager.checkpermissions();
+
         setUpCameraOutputs(width,height);
         configureTransform(width, height);
         Activity activity = getActivity();

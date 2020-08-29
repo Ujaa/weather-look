@@ -1,16 +1,22 @@
 package com.dup.tdup;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.bumptech.glide.Glide;
 
@@ -25,6 +31,12 @@ public class DetailActivity extends AppCompatActivity { //제품 상세정보 �
         TextView itemPrice = (TextView)findViewById(R.id.item_price);
         final Button siteButton = (Button) findViewById(R.id.item_site);
         final Button fitButton = (Button) findViewById(R.id.ar_fit_btn);
+
+        final int PERMISSION_ALL = 1;
+        final String[] PERMISSIONS = {Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
 
         final Intent intent = getIntent();
 
@@ -52,8 +64,21 @@ public class DetailActivity extends AppCompatActivity { //제품 상세정보 �
                 Bitmap outfit_bmp = ((BitmapDrawable)itemImg.getDrawable()).getBitmap();
                 DrawView.outfitImg = outfit_bmp;
                 DrawView.outfitCategory = intent.getStringExtra("category");
-                Intent fitIntent = new Intent(getApplicationContext(), FitPreviewActivity.class);
-                startActivity(fitIntent);
+
+                // 권한이 허용되어있지않다면 권한요청
+                if(!PermissionManager.checkPermissions()){
+                    Toast.makeText(getApplicationContext(), "설정에서 카메라 권한을 허용해 주세요", Toast.LENGTH_SHORT).show();
+
+                    PermissionManager.checkpermissions();
+
+                }
+                // 권한이 허용되어있다면 다음 화면 진행
+                else {
+                    Intent fitIntent = new Intent(getApplicationContext(), FitPreviewActivity.class);
+                    startActivity(fitIntent);
+                }
+
+
             }
         });
 
