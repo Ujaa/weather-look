@@ -14,12 +14,12 @@
         <org.sookmyung.weatherlook.AutoFitTextureView
             android:id="@+id/autoFitTextureView_fit_preview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <org.sookmyung.weatherlook.DrawView
             android:id="@+id/drawView_fit_preview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </org.sookmyung.weatherlook.AutoFitFrameLayout>
 </FrameLayout>

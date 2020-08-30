@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         OpenCVLoader.initDebug();}
 
     Button gpsButton,showFashionButton;
-    TextView result,loc,tempText,time,comment;
+    TextView humidityText, weatherText, loc,tempText,time,comment;
     ImageView weatherimg;
 
     String [] gpspermission_list = {
@@ -134,8 +135,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void search2(View view){//위치를 받아서 날씨 찾기
-        result=findViewById(R.id.textView);
+        humidityText =findViewById(R.id.humTV);
+        weatherText=findViewById(R.id.weatherTV);
         gpsButton = findViewById(R.id.gpsButton);
         tempText = findViewById(R.id.temp);
         weatherimg = findViewById(R.id.icon);
@@ -165,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
             JSONObject weatherPart = array.getJSONObject(0);
             main = weatherPart.getString("main");
 
-
             switch (main){
                 case "Thunderstorm" :
                     main = "천둥";
@@ -193,11 +195,11 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case "Dust":
                     main = "먼지";
-                    weatherimg.setImageResource(R.drawable.other);
+                    weatherimg.setImageResource(R.drawable.dust);
                     break;
                 case "Tornado" :
                     main = "태풍";
-                    weatherimg.setImageResource(R.drawable.other);
+                    weatherimg.setImageResource(R.drawable.tornado);
                     break;
                 default:
                     main = "안개";
@@ -219,9 +221,8 @@ public class MainActivity extends AppCompatActivity {
 
             humid = (int) Double.parseDouble(humidity);
 
-            String resultText="날씨: "+main+"\n습도: "+humidity+"%";
-
-            result.setText(resultText);
+            weatherText.setText(main);
+            humidityText.setText(humidity+"%");
             tempText.setText(temp+"°");
 
             //How we will show this result on screen
@@ -938,9 +939,27 @@ public class MainActivity extends AppCompatActivity {
                 loc.setText("주소찾기 오류");
             }else{
                 Log.d("찾은주소",address.get(0).toString());
-                loc.setText(address.get(0).getAddressLine(0));
+                loc.setText(getAdress(address));
             }
         }
+    }
+
+    public String getAdress(List<Address> address){
+        String locText = "";
+        if(address.get(0).getCountryName() != null){
+            locText = " "+ address.get(0).getAdminArea();
+        }
+        if(address.get(0).getLocality() != null){
+            locText += " "+address.get(0).getLocality();
+        }else{
+            locText += " "+ address.get(0).getSubLocality();
+        }
+        if(address.get(0).getThoroughfare() != null){
+            locText += " "+ address.get(0).getThoroughfare();
+        }else{
+            locText += " "+ address.get(0).getFeatureName();
+        }
+        return locText;
     }
 
 
