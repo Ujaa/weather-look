@@ -906,10 +906,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(location1 !=null) {
             setMyLocation(location1);
-        }else{
-            if(location2 != null){
+        }else if(location2 != null){
                 setMyLocation(location2);
-            }
         }
         //새롭게 측정한다.
         GetMyLocationListener listener = new GetMyLocationListener();
@@ -917,7 +915,7 @@ public class MainActivity extends AppCompatActivity {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,10f,listener);
         }
         if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)==true){
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,1000,10f,listener);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,1000,10f,listener);
         }
     }
     public void setMyLocation(Location location){ //위도경도로 주소찾기
