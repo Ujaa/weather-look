@@ -7,16 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCategory"
-        android:layout_width="match_parent"
-        android:layout_height="420dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-    </androidx.recyclerview.widget.RecyclerView>
-
     <ImageButton
         android:id="@+id/goMain"
         android:layout_width="wrap_content"
@@ -31,19 +21,6 @@
         app:layout_constraintVertical_bias="0.045"
         app:srcCompat="@drawable/ic_baseline_navigate_before_24" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_marginTop="10dp"
-        android:scaleType="centerCrop"
-        android:tint="#6F000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/clothing_icon_background" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -55,126 +32,164 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"/>
 
-    <TextView
-        android:id="@+id/tvTop"
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="없음"
-        android:gravity="center_horizontal"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/top_icon_imgview"
-        app:layout_constraintStart_toStartOf="@+id/top_icon_imgview"
-        app:layout_constraintTop_toBottomOf="@+id/top_icon_imgview" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" >
 
-    <TextView
-        android:id="@+id/tvBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="없음"
-        android:textColor="#FFFFFF"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/bottom_icon_imgview"
-        app:layout_constraintStart_toStartOf="@+id/bottom_icon_imgview"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_icon_imgview" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvOuter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="없음"
-        android:textColor="#FFFFFF"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/outer_icon_imgview"
-        app:layout_constraintStart_toStartOf="@+id/outer_icon_imgview"
-        app:layout_constraintTop_toBottomOf="@+id/outer_icon_imgview" />
+            <TextView
+                android:id="@+id/tvToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:text="오늘의 코디"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/background_imgview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvDress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="없음"
-        android:textColor="#FFFFFF"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/dress_icon_imgview"
-        app:layout_constraintStart_toStartOf="@+id/dress_icon_imgview"
-        app:layout_constraintTop_toBottomOf="@+id/dress_icon_imgview" />
+            <ImageView
+                android:id="@+id/background_imgview"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                android:tint="#6F000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvToday"
+                app:layout_constraintBottom_toTopOf="@+id/rvCategory"
+                app:srcCompat="@drawable/clothing_icon_background" />
 
-    <TextView
-        android:id="@+id/tvAccessory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="없음"
-        android:textColor="#FFFFFF"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/acc_icon_imgview"
-        app:layout_constraintStart_toStartOf="@+id/acc_icon_imgview"
-        app:layout_constraintTop_toBottomOf="@+id/acc_icon_imgview" />
+            <TextView
+                android:id="@+id/tvTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="없음"
+                android:gravity="center_horizontal"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="@+id/top_icon_imgview"
+                app:layout_constraintStart_toStartOf="@+id/top_icon_imgview"
+                app:layout_constraintTop_toBottomOf="@+id/top_icon_imgview" />
 
-    <ImageView
-        android:id="@+id/acc_icon_imgview"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="25dp"
-        app:layout_constraintStart_toEndOf="@+id/dress_icon_imgview"
-        app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
-        app:srcCompat="@drawable/acc_icon" />
+            <TextView
+                android:id="@+id/tvBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="없음"
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/bottom_icon_imgview"
+                app:layout_constraintStart_toStartOf="@+id/bottom_icon_imgview"
+                app:layout_constraintTop_toBottomOf="@+id/bottom_icon_imgview" />
 
-    <ImageView
-        android:id="@+id/bottom_icon_imgview"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintEnd_toStartOf="@+id/outer_icon_imgview"
-        app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
-        app:srcCompat="@drawable/bottom_icon" />
+            <TextView
+                android:id="@+id/tvOuter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="없음"
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/outer_icon_imgview"
+                app:layout_constraintStart_toStartOf="@+id/outer_icon_imgview"
+                app:layout_constraintTop_toBottomOf="@+id/outer_icon_imgview" />
 
-    <ImageView
-        android:id="@+id/dress_icon_imgview"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="25dp"
-        app:layout_constraintStart_toEndOf="@+id/outer_icon_imgview"
-        app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
-        app:srcCompat="@drawable/dress_icon" />
+            <TextView
+                android:id="@+id/tvDress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="없음"
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/dress_icon_imgview"
+                app:layout_constraintStart_toStartOf="@+id/dress_icon_imgview"
+                app:layout_constraintTop_toBottomOf="@+id/dress_icon_imgview" />
 
-    <ImageView
-        android:id="@+id/outer_icon_imgview"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:srcCompat="@drawable/outer_icon" />
+            <TextView
+                android:id="@+id/tvAccessory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="없음"
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="@+id/acc_icon_imgview"
+                app:layout_constraintStart_toStartOf="@+id/acc_icon_imgview"
+                app:layout_constraintTop_toBottomOf="@+id/acc_icon_imgview" />
 
-    <ImageView
-        android:id="@+id/top_icon_imgview"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintEnd_toStartOf="@+id/bottom_icon_imgview"
-        app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
-        app:srcCompat="@drawable/top_icon" />
+            <ImageView
+                android:id="@+id/acc_icon_imgview"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toEndOf="@+id/dress_icon_imgview"
+                app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
+                app:srcCompat="@drawable/acc_icon" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="오늘의 코디"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+            <ImageView
+                android:id="@+id/bottom_icon_imgview"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/outer_icon_imgview"
+                app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
+                app:srcCompat="@drawable/bottom_icon" />
 
+            <ImageView
+                android:id="@+id/dress_icon_imgview"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="25dp"
+                app:layout_constraintStart_toEndOf="@+id/outer_icon_imgview"
+                app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
+                app:srcCompat="@drawable/dress_icon" />
+
+            <ImageView
+                android:id="@+id/outer_icon_imgview"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/background_imgview"
+                app:srcCompat="@drawable/outer_icon" />
+
+            <ImageView
+                android:id="@+id/top_icon_imgview"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintEnd_toStartOf="@+id/bottom_icon_imgview"
+                app:layout_constraintTop_toTopOf="@+id/outer_icon_imgview"
+                app:srcCompat="@drawable/top_icon" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/background_imgview">
+            </androidx.recyclerview.widget.RecyclerView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
