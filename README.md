@@ -42,14 +42,9 @@ Weather Look은 구글 지도 API와 open weather map API를 사용하여 날씨
 8. oauth2client 4.1.3 이상
 
 ## 라이브러리_설치_및_환경설정
-### Anaconda 가상환경 생성
- * [Anaconda 가상환경 생성방법](http://circlestate.tistory.com/3)
 
 ### Opencv 설치
  * [Python Opencv 설치법](http://circlestate.tistory.com/4)
-
-### Python Dlib 설치
- * [Python Dlib 설치법](http://circlestate.tistory.com/6)
 
 ### Google Cloud Platform Api 사용방법
  * [Google Cloud Platform 사용설정](http://circlestate.tistory.com/8)
