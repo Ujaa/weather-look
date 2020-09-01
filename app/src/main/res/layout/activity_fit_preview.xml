@@ -6,20 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.dup.tdup.AutoFitFrameLayout
+    <org.sookmyung.weatherlook.AutoFitFrameLayout
         android:id="@+id/autofitFrameLayout_fit_preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.dup.tdup.AutoFitTextureView
+        <org.sookmyung.weatherlook.AutoFitTextureView
             android:id="@+id/autoFitTextureView_fit_preview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
-        <com.dup.tdup.DrawView
+        <org.sookmyung.weatherlook.DrawView
             android:id="@+id/drawView_fit_preview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
-    </com.dup.tdup.AutoFitFrameLayout>
+    </org.sookmyung.weatherlook.AutoFitFrameLayout>
 </FrameLayout>

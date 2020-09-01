@@ -31,10 +31,6 @@
                 android:paddingBottom="25dp"
                 android:paddingTop="25dp"
                 android:background="@drawable/radius_category_item"/>
-            <!-- 차후
-                android:choiceMode="multipleChoice"
-                android:contentDescription="TODO"
-                android:scaleType="centerCrop" -->
 
             <TextView
                 android:id="@+id/tvItemName"
