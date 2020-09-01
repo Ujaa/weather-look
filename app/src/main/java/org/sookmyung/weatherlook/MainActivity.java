@@ -158,7 +158,6 @@ public class MainActivity extends AppCompatActivity {
             //weather data is in Array
             JSONArray array = new JSONArray(weatherData);
 
-
             String temperature = "";
             String humidity = "";
             String feels = "";

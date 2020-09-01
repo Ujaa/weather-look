@@ -66,6 +66,7 @@
                 android:gravity="center_horizontal"
                 android:text="없음"
                 android:textColor="#FFFFFF"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/top_icon_imgview"
                 app:layout_constraintStart_toStartOf="@+id/top_icon_imgview"
                 app:layout_constraintTop_toBottomOf="@+id/top_icon_imgview" />
@@ -78,6 +79,7 @@
                 android:gravity="center_horizontal"
                 android:text="없음"
                 android:textColor="#FFFFFF"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/bottom_icon_imgview"
                 app:layout_constraintStart_toStartOf="@+id/bottom_icon_imgview"
                 app:layout_constraintTop_toBottomOf="@+id/bottom_icon_imgview" />
@@ -90,6 +92,7 @@
                 android:gravity="center_horizontal"
                 android:text="없음"
                 android:textColor="#FFFFFF"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/outer_icon_imgview"
                 app:layout_constraintStart_toStartOf="@+id/outer_icon_imgview"
                 app:layout_constraintTop_toBottomOf="@+id/outer_icon_imgview" />
@@ -102,6 +105,7 @@
                 android:gravity="center_horizontal"
                 android:text="없음"
                 android:textColor="#FFFFFF"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/dress_icon_imgview"
                 app:layout_constraintStart_toStartOf="@+id/dress_icon_imgview"
                 app:layout_constraintTop_toBottomOf="@+id/dress_icon_imgview" />
@@ -114,6 +118,7 @@
                 android:gravity="center_horizontal"
                 android:text="없음"
                 android:textColor="#FFFFFF"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/acc_icon_imgview"
                 app:layout_constraintStart_toStartOf="@+id/acc_icon_imgview"
                 app:layout_constraintTop_toBottomOf="@+id/acc_icon_imgview" />
