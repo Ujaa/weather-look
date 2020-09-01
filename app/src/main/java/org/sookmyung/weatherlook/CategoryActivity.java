@@ -106,7 +106,7 @@ public class CategoryActivity extends AppCompatActivity {
             top.itemCategory = topArrayList;
             top.items = new ArrayList<ItemInfo>();
 
-            // <채영> 상품 정보 크롤링 필요 - getImages() 활용?
+            // <채영> 상품 정보 크롤링
             for(ItemInfo item :pickItemTopInfoArray){
                 top.items.add(item);
             }
@@ -427,10 +427,6 @@ public class CategoryActivity extends AppCompatActivity {
             accessoryArrayList.add("목도리");
             accessoryArrayList.add("겨울모자");
             categoryInfoArrayList.add(new CategoryInfo(topArrayList, bottomArrayList, outerArrayList, null, accessoryArrayList));
-            //CategoryInfo zero = categoryInfoArrayList.get(0);
-            //zero.getTop();
-            //System.out.println("0도!"+categoryInfoArrayList.get(categoryInfoArrayList.size()-1).getTop());
-            //return categoryInfoArrayList.get(categoryInfoArrayList.size()-1);
         }else if (5 <= temp && temp <= 8) {//약간 추운 날씨
             topArrayList.add("맨투맨");
             topArrayList.add("두꺼운 긴팔니트");

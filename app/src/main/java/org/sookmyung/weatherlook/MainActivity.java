@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     class Weather extends AsyncTask<String,Void,String> {//First String means URL is in String, Void mean nothing, Third String means Return type will be String
 
         @Override
-        protected String doInBackground(String... address) {//위에서 첫번째 string이므로 string 반환값 :  세번째 string
+        protected String doInBackground(String... address) {
             //String... means multiple address can be send. It acts as array
             try {
                 URL url = new URL(address[0]);
@@ -101,12 +101,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         PermissionManager permissionManager = new PermissionManager(this);
-        //permissionManager.requestPerms();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            //requestPermissions(permission_list, 0);
             permissionManager.requestPerms();
         }else{
             getMyLocation();
@@ -224,9 +222,6 @@ public class MainActivity extends AppCompatActivity {
             weatherText.setText(main);
             humidityText.setText(humidity+"%");
             tempText.setText(temp+"°");
-
-            //How we will show this result on screen
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -749,7 +744,6 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
                     }
-                    comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
                 } else if (9 <= temp && temp <= 11) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n하늘에서는 천둥이 치고 있으니 조심하세요!");
@@ -873,7 +867,7 @@ public class MainActivity extends AppCompatActivity {
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다..\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n날씨도 많이 덥지만 태풍이 지나가고 있으니 조심해주세요!");
                     }
                     else if(main.equals("안개")){
-                        comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
+                        comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!");
                     }
                     else{
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
