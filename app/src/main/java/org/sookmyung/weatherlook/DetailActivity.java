@@ -67,9 +67,7 @@ public class DetailActivity extends AppCompatActivity { //제품 상세정보 �
                 if(!PermissionManager.checkPermissions()){
                     Toast.makeText(getApplicationContext(), "설정에서 카메라 권한을 허용해 주세요", Toast.LENGTH_SHORT).show();
 
-                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            PermissionManager.checkpermissions();
-                    }
+                    PermissionManager.checkpermissions();
 
                 }
                 // 권한이 허용되어있다면 다음 화면 진행
