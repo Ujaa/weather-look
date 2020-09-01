@@ -1,11 +1,9 @@
 # WEATHER-LOOK
 
-(아래는 예시)
-
 1. [프로젝트 설명 및 사용방법](#프로젝트_설명_및_사용방법)
 2. [시스템 구성도](#시스템_구성도)
 2. [데모](#데모)
-3. [설치환경](#설치환경)
+3. [개발환경](#개발환경)
 4. [라이브러리 설치 및 환경 설정](#라이브러리_설치_및_환경설정)
 
 
@@ -29,24 +27,17 @@ Weather Look은 구글 지도 API와 open weather map API를 사용하여 날씨
 ## 데모
 [데모영상](https://youtu.be/DjnEKcIg3a8)
 
-## 설치환경
-본 프로젝트는 Window 환경에서 Anaconda Python을 사용하여 구현되었습니다.
+## 개발환경
+개발환경: Android Studio 3.2.0, jdk-14.0.1, github 
+개발언어: 가상 피팅 서비스를 제공하기 위해 OPENCV 4.1 라이브러리와 TensorFlow-Lite를 사용하였으며, 해당 라이브러리는 C++, HTML, java, XML을 사용하고 있다. 안드로이드 스튜디오에서는 xml과 java를 사용하였습니다.
 
-1. Opencv 3.4.3 이상
-2. imutils 0.51 버전
-3. dlib 19.4.0 이상
-4. google-cloud-speech 0.36.0 이상
-5. PIL 5.2.0 이상
-6. konlpy 0.5.1 이상
-7. google-api-python-client 1.7.4 이상
-8. oauth2client 4.1.3 이상
 
 ## 라이브러리_설치_및_환경설정
 
 ### Opencv 설치
  * [Python Opencv 설치법](http://circlestate.tistory.com/4)
 
-### Google Cloud Platform Api 사용방법
+### open weather map API 사용방법
  * [Google Cloud Platform 사용설정](http://circlestate.tistory.com/8)
  * [Google Cloud Platform 프로젝트 생성](http://circlestate.tistory.com/9)
  * [Google Cloud Platform 서비스 계정 생성](http://circlestate.tistory.com/10)
