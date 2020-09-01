@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     class Weather extends AsyncTask<String,Void,String> {//First String means URL is in String, Void mean nothing, Third String means Return type will be String
 
         @Override
-        protected String doInBackground(String... address) {//위에서 첫번째 string이므로 string 반환값 :  세번째 string
+        protected String doInBackground(String... address) {
             //String... means multiple address can be send. It acts as array
             try {
                 URL url = new URL(address[0]);
@@ -101,12 +101,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         PermissionManager permissionManager = new PermissionManager(this);
-        //permissionManager.requestPerms();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            //requestPermissions(permission_list, 0);
             permissionManager.requestPerms();
         }else{
             getMyLocation();
@@ -224,9 +222,6 @@ public class MainActivity extends AppCompatActivity {
             weatherText.setText(main);
             humidityText.setText(humidity+"%");
             tempText.setText(temp+"°");
-
-            //How we will show this result on screen
-
 
         } catch (Exception e) {
             e.printStackTrace();
