@@ -11,7 +11,7 @@
 
 ## 프로젝트_설명_및_사용방법
 ### 프로젝트 설명
-저희 프로그램은 opencv 와 dlib를 사용하여 웹캠에서 보이는 사람들의 얼굴과 입술을 인식합니다. 또한 Google Cloud Platform의 Speech to text API를 사용하여 마이크로 통해 들어오는 음성을 텍스트화하여 인식된 얼굴 옆에 말풍선을 사용해 띄워줍니다. 이 때 인식된 얼굴들 중에 누가 말했는지 알기위해 입술의 변화를 이용하여 인식하였습니다. 
+Weather Look은 구글 지도 API와 open weather map API를 사용하여 날씨에 맞는 다양한 스타일의 옷들을 카테고리별로 추천해주고, OPENCV를 사용하여 사용자가 선택한 옷들을 가상으로 입어볼 수 있도록 도와줍니다. 또한 사용자가 옷이 마음에 들 경우 해당 옷의 쇼핑몰로 연결하여 바로 구매까지 할 수 있도록 도와줌으로써 사용자의 옷 스타일 고민을 줄여주고자 하는 것이 Weather Look의 목적입니다. 
 
 
 ### 시스템 구성도
@@ -42,14 +42,9 @@
 8. oauth2client 4.1.3 이상
 
 ## 라이브러리_설치_및_환경설정
-### Anaconda 가상환경 생성
- * [Anaconda 가상환경 생성방법](http://circlestate.tistory.com/3)
 
 ### Opencv 설치
  * [Python Opencv 설치법](http://circlestate.tistory.com/4)
-
-### Python Dlib 설치
- * [Python Dlib 설치법](http://circlestate.tistory.com/6)
 
 ### Google Cloud Platform Api 사용방법
  * [Google Cloud Platform 사용설정](http://circlestate.tistory.com/8)
