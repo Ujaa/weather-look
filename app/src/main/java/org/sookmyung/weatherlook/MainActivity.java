@@ -744,7 +744,6 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
                     }
-                    comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
                 } else if (9 <= temp && temp <= 11) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n하늘에서는 천둥이 치고 있으니 조심하세요!");
@@ -868,7 +867,7 @@ public class MainActivity extends AppCompatActivity {
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다..\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n날씨도 많이 덥지만 태풍이 지나가고 있으니 조심해주세요!");
                     }
                     else if(main.equals("안개")){
-                        comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
+                        comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!");
                     }
                     else{
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
