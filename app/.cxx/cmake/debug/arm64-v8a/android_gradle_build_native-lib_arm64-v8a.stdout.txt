@@ -1,3 +1,3 @@
-ninja: Entering directory `C:\android_workspace\weather-look\app\.cxx\cmake\debug\arm64-v8a'
+ninja: Entering directory `C:\Users\yujin\Desktop\weather-look22\app\.cxx\cmake\debug\arm64-v8a'
 [1/2] Building CXX object CMakeFiles/native-lib.dir/src/main/cpp/native-lib.cpp.o
 [2/2] Linking CXX shared library ..\..\..\..\build\intermediates\cmake\debug\obj\arm64-v8a\libnative-lib.so

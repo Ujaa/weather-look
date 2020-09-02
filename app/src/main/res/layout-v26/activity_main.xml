@@ -55,8 +55,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/time"
         app:layout_constraintEnd_toStartOf="@+id/time"
         app:layout_constraintTop_toBottomOf="@+id/gpsButton"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/divider_horizontal_dim_dark" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/gpsButton"
