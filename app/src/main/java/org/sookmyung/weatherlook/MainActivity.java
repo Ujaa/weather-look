@@ -382,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
                     }
                 }
-            } else if (humid >= 40 && humid < 60) {
+            } else if (humid >= 40 && humid < 50) {
                 if (feel < -3) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
@@ -653,7 +653,25 @@ public class MainActivity extends AppCompatActivity {
                     } else{
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
                     }
-                } else if (23 <= feel && feel < 27) {
+                } else if (23 <= feel && feel < 25) {
+                    if(main.equals("천둥")){
+                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n지금 밖에는 천둥이 치고 있어요! 소리에 유의하세요!");
+                    } else if(main.equals("이슬비")||main.equals("비")){
+                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n그리고 비도 오니 우산은 꼭 챙겨주세요!");
+                    } else if(main.equals("맑음")){
+                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n햇빛이 많은 날씨이니 자외선을 차단해 피부건강을 지켜주세요!");
+                    } else if(main.equals("구름")){
+                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+                    } else if(main.equals("먼지")){
+                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n공기 안의 먼지가 많은 날이니 마스크는 필수로 챙겨주세요!");
+                    } else if(main.equals("태풍")){
+                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n태풍이 지나가고 있어요! 태풍에 대한 대비를 하는 것을 추천드려요!");
+                    } else if(main.equals("안개")){
+                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+                    } else{
+                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+                    }
+                } else if (25 <= feel && feel < 27) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 꽤 후덥지근한 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n지금 밖에는 천둥이 치고 있어요! 소리에 유의하세요!");
                     } else if(main.equals("이슬비")||main.equals("비")){
