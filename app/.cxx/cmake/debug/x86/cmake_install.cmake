@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/yujin/Desktop/weather-look22/app
+# Install script for directory: C:/Users/SM-PC/AndroidStudioProjects/weather-look22/app
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/yujin/Desktop/weather-look22/app/.cxx/cmake/debug/x86/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/SM-PC/AndroidStudioProjects/weather-look22/app/.cxx/cmake/debug/x86/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
