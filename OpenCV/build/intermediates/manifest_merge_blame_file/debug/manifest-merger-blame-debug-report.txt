@@ -6,8 +6,8 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="23"
-8-->C:\Users\yujin\Desktop\weather-look22\OpenCV\AndroidManifest.xml
+8-->C:\android_workspace\weather-look\OpenCV\AndroidManifest.xml
 9        android:targetSdkVersion="28" />
-9-->C:\Users\yujin\Desktop\weather-look22\OpenCV\AndroidManifest.xml
+9-->C:\android_workspace\weather-look\OpenCV\AndroidManifest.xml
 10
 11</manifest>
