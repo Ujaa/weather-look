@@ -69,8 +69,6 @@ public class CategoryActivity extends AppCompatActivity {
         ImageButton goMain = (ImageButton)findViewById(R.id.goMain);
         BtnListenerGo goListener = new BtnListenerGo();
         goMain.setOnClickListener(goListener);
-        //getImages();
-        //initRecyclerView();
     }
 
     // 화면에 보여줄 정보 (상위 카테고리, 상품 정보)
@@ -389,14 +387,6 @@ public class CategoryActivity extends AppCompatActivity {
         }
     }
 
-    private void initRecyclerView(){
-        RecyclerView recyclerView = findViewById(R.id.rvCategory);
-        CategoryAdapter adapter = new CategoryAdapter(CategoryActivity.this, categories);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(CategoryActivity.this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-    }
-
     // 기온별 옷차림
     private CategoryInfo prepareCategory(){
         Intent intent = getIntent();
@@ -404,9 +394,6 @@ public class CategoryActivity extends AppCompatActivity {
         int feel = intent.getExtras().getInt("feel");
         int humidity = intent.getExtras().getInt("humidity");
         // <희> 테스트용으로 temp, feel, humidity 설정
-//        temp = 33;
-//        feel = 33;
-//        humidity = 10;
         if (feel < -3){//매우 추운 날씨
             topArrayList.add("터틀넥");
             topArrayList.add("후드티");
