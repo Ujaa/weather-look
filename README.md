@@ -1,17 +1,15 @@
 # WEATHER-LOOK
 
-(아래는 예시)
-
 1. [프로젝트 설명 및 사용방법](#프로젝트_설명_및_사용방법)
 2. [시스템 구성도](#시스템_구성도)
 2. [데모](#데모)
-3. [설치환경](#설치환경)
+3. [개발환경](#개발환경)
 4. [라이브러리 설치 및 환경 설정](#라이브러리_설치_및_환경설정)
 
 
 ## 프로젝트_설명_및_사용방법
 ### 프로젝트 설명
-저희 프로그램은 opencv 와 dlib를 사용하여 웹캠에서 보이는 사람들의 얼굴과 입술을 인식합니다. 또한 Google Cloud Platform의 Speech to text API를 사용하여 마이크로 통해 들어오는 음성을 텍스트화하여 인식된 얼굴 옆에 말풍선을 사용해 띄워줍니다. 이 때 인식된 얼굴들 중에 누가 말했는지 알기위해 입술의 변화를 이용하여 인식하였습니다. 
+Weather Look은 구글 지도 API와 open weather map API를 사용하여 날씨에 맞는 다양한 스타일의 옷들을 카테고리별로 추천해주고, OPENCV를 사용하여 사용자가 선택한 옷들을 가상으로 입어볼 수 있도록 도와줍니다. 또한 사용자가 옷이 마음에 들 경우 해당 옷의 쇼핑몰로 연결하여 바로 구매까지 할 수 있도록 도와줌으로써 사용자의 옷 스타일 고민을 줄여주고자 하는 것이 Weather Look의 목적입니다. 
 
 
 ### 시스템 구성도
@@ -29,29 +27,17 @@
 ## 데모
 [데모영상](https://youtu.be/DjnEKcIg3a8)
 
-## 설치환경
-본 프로젝트는 Window 환경에서 Anaconda Python을 사용하여 구현되었습니다.
+## 개발환경
+개발환경: Android Studio 3.2.0, jdk-14.0.1, github 
+개발언어: 가상 피팅 서비스를 제공하기 위해 OPENCV 4.1 라이브러리와 TensorFlow-Lite를 사용하였으며, 해당 라이브러리는 C++, HTML, java, XML을 사용하고 있다. 안드로이드 스튜디오에서는 xml과 java를 사용하였습니다.
 
-1. Opencv 3.4.3 이상
-2. imutils 0.51 버전
-3. dlib 19.4.0 이상
-4. google-cloud-speech 0.36.0 이상
-5. PIL 5.2.0 이상
-6. konlpy 0.5.1 이상
-7. google-api-python-client 1.7.4 이상
-8. oauth2client 4.1.3 이상
 
 ## 라이브러리_설치_및_환경설정
-### Anaconda 가상환경 생성
- * [Anaconda 가상환경 생성방법](http://circlestate.tistory.com/3)
 
 ### Opencv 설치
  * [Python Opencv 설치법](http://circlestate.tistory.com/4)
 
-### Python Dlib 설치
- * [Python Dlib 설치법](http://circlestate.tistory.com/6)
-
-### Google Cloud Platform Api 사용방법
+### open weather map API 사용방법
  * [Google Cloud Platform 사용설정](http://circlestate.tistory.com/8)
  * [Google Cloud Platform 프로젝트 생성](http://circlestate.tistory.com/9)
  * [Google Cloud Platform 서비스 계정 생성](http://circlestate.tistory.com/10)

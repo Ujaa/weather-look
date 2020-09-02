@@ -63,11 +63,10 @@ public class MainActivity extends AppCompatActivity {
     int temp=-100, feel, humid;
     String main = "";
 
-    class Weather extends AsyncTask<String,Void,String> {//First String means URL is in String, Void mean nothing, Third String means Return type will be String
+    class Weather extends AsyncTask<String,Void,String> {
 
         @Override
         protected String doInBackground(String... address) {
-            //String... means multiple address can be send. It acts as array
             try {
                 URL url = new URL(address[0]);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -78,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                 InputStream is = connection.getInputStream();
                 InputStreamReader isr = new InputStreamReader(is);
 
-                //Retrieve data and return it as String
                 int data =isr.read();
                 String content = "";
                 char ch;
@@ -121,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(temp==-100){
-                    Toast.makeText(getApplicationContext(), "GPS아이콘을 눌러주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "위치검색을 눌러주세요", Toast.LENGTH_SHORT).show();
                 }else {
                     Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
                     intent.putExtra("temp", temp);
@@ -149,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             content = weather.execute("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=4a1b15c4aacf678efc30be1d8b411e1d").get();
-            //First we will check data is retrieve successfully or not
 
             //JSon
             JSONObject jsonObject = new JSONObject(content);
@@ -166,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             JSONObject weatherPart = array.getJSONObject(0);
             main = weatherPart.getString("main");
 
-            switch (main){
+            switch (main){//날씨 한글화
                 case "Thunderstorm" :
                     main = "천둥";
                     weatherimg.setImageResource(R.drawable.thunder);
@@ -889,7 +886,7 @@ public class MainActivity extends AppCompatActivity {
                 requestPermissions(gpspermission_list, 0);
                 return;
             }else if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-                Toast.makeText(getApplicationContext(), "GPS를 켜주세요", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "위치를 켜주세요", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
@@ -900,7 +897,7 @@ public class MainActivity extends AppCompatActivity {
         if(location1 !=null) {
             setMyLocation(location1);
         }else if(location2 != null){
-                setMyLocation(location2);
+            setMyLocation(location2);
         }
         //새롭게 측정한다.
         GetMyLocationListener listener = new GetMyLocationListener();
