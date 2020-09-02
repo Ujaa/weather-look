@@ -228,217 +228,157 @@ public class MainActivity extends AppCompatActivity {
         Date currentTime = Calendar.getInstance().getTime();
         String data_text = new SimpleDateFormat("MM월 dd일 EE요일", Locale.getDefault()).format(currentTime);
         time.setText(data_text);
-
+        //체감온도,온도,습도,날씨에 따라 첫화면 문구 지정
         if(temp!=-100) {
             if (humid >= 0 && humid < 40) {
                 if (feel < -3) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
-                    }
-                    else if(main.equals("이슬비")){
+                    } else if(main.equals("이슬비")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 이슬비가 내리고 있으니 나갈 때 우산을 꼭 챙기세요!");
-                    }
-                    else if(main.equals("비")){
+                    } else if(main.equals("비")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 하늘에서 비가 내리고 있어요. 우산이나 우비를 챙겨주세요!");
-                    }
-                    else if(main.equals("눈")){
+                    } else if(main.equals("눈")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 눈이 내리고 있어요! 미끄러지지 않는 신발을 신는게 좋겠네요.:)");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n하늘은 맑으니 춥더라도 자외선 차단에 신경쓰면 좋겠네요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n오늘은 하늘에 구름이 있는 날이네요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 공기중에 먼지가 많으니 마스크를 챙겨주세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금 태풍이 지나가고 있어요! 외출을 자제하고 외출하더라도 바람과 비에 유의하세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 안개가 많이 낀 상황이니 시야가 좁아지는 것에 조심하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n특별히 많이 건조하니 정전기에 유의하세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
                     }
                 } else if (feel >= -3 && temp <= 4) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n천둥이 치고 있으니 놀라지 마세요:)");
-                    }
-                    else if(main.equals("이슬비")){
+                    } else if(main.equals("이슬비")){
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n지금은 이슬비도 살짝 내리고 있어요! 외출할 때 우산을 챙기세요.");
-                    }
-                    else if(main.equals("비")){
+                    } else if(main.equals("비")){
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n오늘은 비가 오고 있으니 나갈 때 우산이나 우비를 꼭꼭 챙겨주세요!");
-                    }
-                    else if(main.equals("눈")){
+                    } else if(main.equals("눈")){
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n또 하늘에서 눈이 내리고 있어요! 미끄러지지 않도록 조심하세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n오늘은 화창하고 맑은 하늘을 볼 수 있겠네요:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n오늘은 하늘에 구름이 있는 날이에요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n지금은 공기가 먼지로 탁해요! 마스크를 챙기는 것이 좋을거 같네요.");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n밖에는 태풍이 지나가고 있어요! 외출할 때 비와 바람에 주의하세요.");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n그리고 뿌연 안개가 당신의 시야를 가릴 수도 있으니 조심하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 날씨가 꽤 춥고 건조해요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
                     }
                 } else if (5 <= temp && temp <= 8) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n밖에는 천둥이 치고 있어요! 깜짝 놀랄 수도 있으니 조심하세요.");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n비가 내리고 있으니 우산이나 우비는 필수템입니다!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n오늘은 하늘에 구름이 많이 없이 기분 좋은 맑은 날씨네요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n오늘 하늘에는 구름이 있는 몽실몽실한 하늘입니다!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n특별히 오늘은 먼지가 많은 날이니 조심하세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n태풍이 지나가고 있으니 거센 바람과 비에 대비하는 것이 좋겠어요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n하늘에는 안개가 껴있는 날입니다! 앞이 잘 보이지 않을 수 있으니 외출할 때 주의하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
                     }
                 } else if (9 <= temp && temp <= 11) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n하늘에서는 천둥이 치고 있으니 조심하세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n하늘에서는 비가 내리니 물에 금방 마르는 신발을 신는 것이 어떨까요?");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n오늘 하늘은 맑음이니 다른 날보다는 조금 더 따뜻한 하루이겠네요!:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n오늘은 구름이 있는 하늘이네요:)");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n공기 중에는 먼지가 꽤 있으니 마스크를 꼭꼭 챙기세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n특별히 밖은 태풍이 몰아치고 있으니 조심하는 것이 좋겠네요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n또 안개도 꽤 많이 있으니 어두울 때는 특히 더 조심하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!");
                     }
                 } else if (12 <= temp && temp <= 17) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 시원한 날씨네요.\n외출할 때 얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n밖에는 천둥이 내리치고 있으니 외출할 때 주의하세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")) {
+                    } else if(main.equals("이슬비")||main.equals("비")) {
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n밖에는 비가 내리고 있으니 우산이나 우비를 잊지 마세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n맑은 하늘이니 외출이나 드라이브하기도 좋겠네요.:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n좋은 날씨지만 공기 중의 먼지가 있으니 마스크는 필수입니다!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n태풍이 몰아치고 있으니 강한 바람과 비에 조심해주세요!");
-                    }
-                    else if(main.equals("안개")) {
+                    } else if(main.equals("안개")) {
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n안개가 꽤 있으니 시야확보에 신경써주세요!");
                     }
                 } else if (18 <= temp && feel < 23) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n특별히 밖에는 천둥이 치고 있으니 소리에 놀라지 않도록 조심하세요!:)");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n하늘에서 비가 오니 우산, 우비 잊지 말아주세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n오늘은 맑은 날을 보낼 수 있는 하늘이네요.:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n공기 중에는 먼지가 많은 날이니 마스크를 챙겨주세요.:)");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n또한 태풍이 지나가고 있으니까 외출할 때는 조심해주세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n안개도 많이 있으니 외출때 유의해주세요.");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
                     }
                 } else if (23 <= feel && feel < 27) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n지금 밖에는 천둥이 치고 있어요! 소리에 유의하세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n그리고 비도 오니 우산은 꼭 챙겨주세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n햇빛이 많은 날씨이니 자외선을 차단해 피부건강을 지켜주세요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n공기 안의 먼지가 많은 날이니 마스크는 필수로 챙겨주세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n태풍이 지나가고 있어요! 태풍에 대한 대비를 하는 것을 추천드려요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
+                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
+                    } else{
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
                     }
-                    else{
-                        comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
-                    }
-                }
-                else {
+                } else {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n지금은 천둥이 많이 치니 주의해주세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n비가 내리니 우산을 꼭꼭 챙겨주세요!:)");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!\n태양이 내리쬐는 하루이니 자외선 차단제는 필수이겠네요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!\n공기 중에 먼지가 많으니 답답하더라도 마스크는 꼭 착용해주세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n날씨도 많이 덥지만 태풍이 지나가고 있으니 조심해주세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
                     }
                 }
@@ -446,210 +386,153 @@ public class MainActivity extends AppCompatActivity {
                 if (feel < -3) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
-                    }
-                    else if(main.equals("이슬비")){
+                    } else if(main.equals("이슬비")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 이슬비가 내리고 있으니 나갈 때 우산을 꼭 챙기세요!");
-                    }
-                    else if(main.equals("비")){
+                    } else if(main.equals("비")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 하늘에서 비가 내리고 있어요. 우산이나 우비를 챙겨주세요!");
-                    }
-                    else if(main.equals("눈")){
+                    } else if(main.equals("눈")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 눈이 내리고 있어요! 미끄러지지 않는 신발을 신는 것이 좋겠네요.:)");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n하늘은 맑으니 춥더라도 자외선 차단에 신경쓰면 좋겠네요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n오늘은 하늘에 구름이 있는 날이네요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 공기중에 먼지가 많으니 마스크도 챙겨주세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금 태풍이 지나가고 있어요! 외출을 자제하고 외출하더라도 바람과 비에 유의하세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 안개가 많이 낀 상황이니 시야가 좁아지는 것에 조심하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
                     }
                 } else if (feel >= -3 && temp <= 4) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n천둥이 치고 있으니 놀라지 마세요:)");
-                    }
-                    else if(main.equals("이슬비")){
+                    } else if(main.equals("이슬비")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n지금은 이슬비도 살짝 내리고 있어요! 외출할 때 우산을 챙기세요.");
-                    }
-                    else if(main.equals("비")){
+                    } else if(main.equals("비")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n오늘은 비가 오고 있으니 나갈 때 우산이나 우비를 꼭꼭 챙겨주세요!");
-                    }
-                    else if(main.equals("눈")){
+                    } else if(main.equals("눈")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n또 하늘에서 눈이 내리고 있어요! 미끄러지지 않도록 조심하세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n오늘은 화창하고 맑은 하늘을 볼 수 있겠네요:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n오늘은 하늘에 구름이 있는 날이에요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n지금은 공기가 먼지로 탁해요! 마스크를 챙기는 것이 좋을거 같네요.");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n밖에는 태풍이 지나가고 있어요! 외출할 때 비와 바람에 주의하세요.");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n그리고 뿌연 안개가 당신의 시야를 가릴 수도 있으니 조심하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
                     }
                 } else if (5 <= temp && temp <= 8) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n밖에는 천둥이 치고 있어요! 깜짝 놀랄 수도 있으니 조심하세요.");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n비가 내리고 있으니 우산이나 우비는 필수템입니다!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n오늘은 하늘에 구름이 많이 없이 기분 좋은 맑은 날씨네요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n오늘 하늘에는 구름이 있는 몽실몽실한 하늘입니다!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n특별히 오늘은 먼지가 많은 날이니 조심하세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n태풍이 지나가고 있으니 거센 바람과 비에 대비하는 것이 좋겠어요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n하늘에는 안개가 껴있는 날입니다! 앞이 잘 보이지 않을 수 있으니 외출할 때 주의하세요!");
-                    }
-                    else {
+                    } else {
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
                     }
                 } else if (9 <= temp && temp <= 11) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n하늘에서는 천둥이 치고 있으니 조심하세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n하늘에서는 비가 내리니 물에 금방 마르는 신발을 신는 것이 어떨까요?");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n오늘 하늘은 맑음이니 다른 날보다는 조금 더 따뜻한 하루이겠네요!:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n오늘은 구름이 있는 하늘이네요:)");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n공기 중에는 먼지가 꽤 있으니 마스크를 꼭꼭 챙기세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n특별히 밖은 태풍이 몰아치고 있으니 조심하는 것이 좋겠네요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n또 안개도 꽤 많이 있으니 어두울 때는 특히 더 조심하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!");
                     }
                 } else if (12 <= temp && temp <= 17) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 시원한 날씨네요.\n외출할 때 얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n밖에는 천둥이 내리치고 있으니 외출할 때 주의하세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")) {
+                    } else if(main.equals("이슬비")||main.equals("비")) {
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n밖에는 비가 내리고 있으니 우산이나 우비를 잊지 마세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n맑은 하늘이니 외출이나 드라이브하기도 좋겠네요.:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n좋은 날씨지만 공기 중의 먼지가 있으니 마스크는 필수입니다!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n태풍이 몰아치고 있으니 강한 바람과 비에 조심해주세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n안개가 꽤 있으니 시야확보에 신경써주세요!");
+                    } else{
+                        comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
                     }
                 } else if (18 <= temp && feel < 23) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n특별히 밖에는 천둥이 치고 있으니 소리에 놀라지 않도록 조심하세요!:)");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n하늘에서 비가 오니 우산, 우비 잊지 말아주세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n오늘은 맑은 날을 보낼 수 있는 하늘이네요.:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n공기 중에는 먼지가 많은 날이니 마스크를 챙겨주세요.:)");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n또한 태풍이 지나가고 있으니까 외출할 때는 조심해주세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n안개도 많이 있으니 외출때 유의해주세요.");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
                     }
                 } else if (23 <= feel && feel < 27) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n지금 밖에는 천둥이 치고 있어요! 소리에 유의하세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n그리고 비도 오니 우산은 꼭 챙겨주세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n햇빛이 많은 날씨이니 자외선을 차단해 피부건강을 지켜주세요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n공기 안의 먼지가 많은 날이니 마스크는 필수로 챙겨주세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n태풍이 지나가고 있어요! 태풍에 대한 대비를 하는 것을 추천드려요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 꽤 더운 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
                     }
                 } else {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n지금은 천둥이 많이 치니 주의해주세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n비가 내리니 우산을 꼭꼭 챙겨주세요!:)");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!\n태양이 내리쬐는 하루이니 자외선 차단제는 필수이겠네요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!\n공기 중에 먼지가 많으니 답답하더라도 마스크는 꼭 착용해주세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n날씨도 많이 덥지만 태풍이 지나가고 있으니 조심해주세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 매우 매우 더운 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
                     }
                 }
@@ -657,220 +540,158 @@ public class MainActivity extends AppCompatActivity {
                 if (feel < -3) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
-                    }
-                    else if(main.equals("이슬비")){
+                    } else if(main.equals("이슬비")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 이슬비가 내리고 있으니 나갈 때 우산을 꼭 챙기세요!");
-                    }
-                    else if(main.equals("비")){
+                    } else if(main.equals("비")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 하늘에서 비가 내리고 있어요. 우산이나 우비를 챙겨주세요!");
-                    }
-                    else if(main.equals("눈")){
+                    } else if(main.equals("눈")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 눈이 내리고 있어요! 미끄러지지 않는 신발을 신는게 좋겠네요.:)");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n하늘은 맑으니 춥더라도 자외선 차단에 신경쓰면 좋겠네요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n오늘은 하늘에 구름이 있는 날이네요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 공기중에 먼지가 많으니 마스크를 챙겨주세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금 태풍이 지나가고 있어요! 외출을 자제하고 외출하더라도 바람과 비에 유의하세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?\n지금은 안개가 많이 낀 상황이니 시야가 좁아지는 것에 조심하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 날씨가 많이 추우니 두껍고 따뜻한 겉옷을 꼭 챙기세요!\n그리고 목도리나 모자로 추위를 이겨내보는건 어떤가요?");
                     }
                 } else if (feel >= -3 && temp <= 4) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n천둥이 치고 있으니 놀라지 마세요:)");
-                    }
-                    else if(main.equals("이슬비")){
+                    } else if(main.equals("이슬비")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n지금은 이슬비도 살짝 내리고 있어요! 외출할 때 우산을 챙기세요.");
-                    }
-                    else if(main.equals("비")){
+                    } else if(main.equals("비")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n오늘은 비가 오고 있으니 나갈 때 우산이나 우비를 꼭꼭 챙겨주세요!");
-                    }
-                    else if(main.equals("눈")){
+                    } else if(main.equals("눈")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n또 하늘에서 눈이 내리고 있어요! 미끄러지지 않도록 조심하세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n오늘은 화창하고 맑은 하늘을 볼 수 있겠네요:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n오늘은 하늘에 구름이 있는 날이에요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n지금은 공기가 먼지로 탁해요! 마스크를 챙기는 것이 좋을거 같네요.");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n밖에는 태풍이 지나가고 있어요! 외출할 때 비와 바람에 주의하세요.");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!\n그리고 뿌연 안개가 당신의 시야를 가릴 수도 있으니 조심하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 날씨가 꽤 추워요.\n감기에 걸리지 않도록 두꺼운 옷을 입거나 얇은 옷을 여러겹 입는 것이 좋겠네요!");
                     }
                 } else if (5 <= temp && temp <= 8) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n밖에는 천둥이 치고 있어요! 깜짝 놀랄 수도 있으니 조심하세요.");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n비가 내리고 있으니 우산이나 우비는 필수템입니다!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n오늘은 하늘에 구름이 많이 없이 기분 좋은 맑은 날씨네요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n오늘 하늘에는 구름이 있는 몽실몽실한 하늘입니다!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n특별히 오늘은 먼지가 많은 날이니 조심하세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n태풍이 지나가고 있으니 거센 바람과 비에 대비하는 것이 좋겠어요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!\n하늘에는 안개가 껴있는 날입니다! 앞이 잘 보이지 않을 수 있으니 외출할 때 주의하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 많이 쌀쌀해요.\n겉옷을 챙기시고 든든하게 챙겨 입는걸 추천합니다!");
                     }
                 } else if (9 <= temp && temp <= 11) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n하늘에서는 천둥이 치고 있으니 조심하세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n하늘에서는 비가 내리니 물에 금방 마르는 신발을 신는 것이 어떨까요?");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n오늘 하늘은 맑음이니 다른 날보다는 조금 더 따뜻한 하루이겠네요!:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n오늘은 구름이 있는 하늘이네요:)");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n공기 중에는 먼지가 꽤 있으니 마스크를 꼭꼭 챙기세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n특별히 밖은 태풍이 몰아치고 있으니 조심하는 것이 좋겠네요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!\n또 안개도 꽤 많이 있으니 어두울 때는 특히 더 조심하세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 햇빛이 있으면 조금 따스하겠지만 그래도 꽤 쌀쌀해요.\n이런 날씨에 감기가 잘 걸리니 주의하세요!");
                     }
                 } else if (12 <= temp && temp <= 17) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 시원한 날씨네요.\n외출할 때 얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n밖에는 천둥이 내리치고 있으니 외출할 때 주의하세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")) {
+                    } else if(main.equals("이슬비")||main.equals("비")) {
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n밖에는 비가 내리고 있으니 우산이나 우비를 잊지 마세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n맑은 하늘이니 외출이나 드라이브하기도 좋겠네요.:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n좋은 날씨지만 공기 중의 먼지가 있으니 마스크는 필수입니다!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n태풍이 몰아치고 있으니 강한 바람과 비에 조심해주세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!\n안개가 꽤 있으니 시야확보에 신경써주세요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 시원하고 약간은 따스하다고 느낄 수도 있는 나들이 가기 좋은 날씨네요.\n얇고 적당한 겉옷 하나를 챙기면 좋을거 같아요!");
                     }
                 } else if (18 <= temp && feel < 23) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n특별히 밖에는 천둥이 치고 있으니 소리에 놀라지 않도록 조심하세요!:)");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n하늘에서 비가 오니 우산, 우비 잊지 말아주세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n오늘은 맑은 날을 보낼 수 있는 하늘이네요.:)");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n공기 중에는 먼지가 많은 날이니 마스크를 챙겨주세요.:)");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n또한 태풍이 지나가고 있으니까 외출할 때는 조심해주세요!");
-                    }
-                    else if(main.equals("Mist")){
+                    } else if(main.equals("Mist")){
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!\n안개도 많이 있으니 외출때 유의해주세요.");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 약간 덥다고 느껴질 수 있는 날씨에요.\n더위를 많이 타시는 분이라면 얇은 옷을 입는 것을 추천드려요!");
                     }
                 } else if (23 <= feel && feel < 27) {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n지금 밖에는 천둥이 치고 있어요! 소리에 유의하세요!");
-                    }
-                    else if(main.equals("이슬비")||main.equals("비")){
+                    } else if(main.equals("이슬비")||main.equals("비")){
                         comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n그리고 비도 오니 우산은 꼭 챙겨주세요!");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n햇빛이 많은 날씨이니 자외선을 차단해 피부건강을 지켜주세요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n공기 안의 먼지가 많은 날이니 마스크는 필수로 챙겨주세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?\n태풍이 지나가고 있어요! 태풍에 대한 대비를 하는 것을 추천드려요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 꽤 후덥찌근 날씨입니다.\n외출할 때 부채나 휴대용 선풍기를 챙기는 것이 어떨까요?");
                     }
                 } else {
                     if(main.equals("천둥")){
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n지금은 천둥이 많이 치니 주의해주세요!");
-                    }
-                    else if(main.equals("이슬비")){
+                    } else if(main.equals("이슬비")){
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n비가 내리니 우산을 꼭꼭 챙겨주세요!:)");
-                    }
-                    else if(main.equals("비")){
+                    } else if(main.equals("비")){
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n비가 내리니 우산을 꼭꼭 챙겨주세요!:)");
-                    }
-                    else if(main.equals("맑음")){
+                    } else if(main.equals("맑음")){
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!\n태양이 내리쬐는 하루이니 자외선 차단제는 필수이겠네요!");
-                    }
-                    else if(main.equals("구름")){
+                    } else if(main.equals("구름")){
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!");
-                    }
-                    else if(main.equals("먼지")){
+                    } else if(main.equals("먼지")){
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!\n공기 중에 먼지가 많으니 답답하더라도 마스크는 꼭 착용해주세요!");
-                    }
-                    else if(main.equals("태풍")){
+                    } else if(main.equals("태풍")){
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다..\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!\n날씨도 많이 덥지만 태풍이 지나가고 있으니 조심해주세요!");
-                    }
-                    else if(main.equals("안개")){
+                    } else if(main.equals("안개")){
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 모자를 써도 좋을거 같네요!");
-                    }
-                    else{
+                    } else{
                         comment.setText("오늘은 매우 매우 덥고 습한 날씨입니다.\n얇고 시원한 옷을 입고 태양을 피할 수 있는 모자를 써도 좋을거 같네요!");
                     }
                 }
-                //계절이나 날씨(눈,비,안개 관련된 사항에 관해 상의)
             }
         }
     }
