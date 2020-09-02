@@ -5,9 +5,9 @@
     "environmentVariables": []
   },
   "cmake": {
-    "cmakeArtifactsBaseFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx\\cmake\\debug\\x86",
-    "cmakeServerLogFile": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx\\cmake\\debug\\x86\\cmake_server_log.txt",
-    "cmakeWrappingBaseFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx\\cxx\\debug\\x86",
+    "cmakeArtifactsBaseFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx\\cmake\\debug\\x86",
+    "cmakeServerLogFile": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx\\cmake\\debug\\x86\\cmake_server_log.txt",
+    "cmakeWrappingBaseFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx\\cxx\\debug\\x86",
     "effectiveConfiguration": {
       "name": "traditional-android-studio-cmake-environment",
       "description": "Composite reified CMakeSettings configuration",
@@ -15,13 +15,13 @@
       "inheritEnvironments": [
         "ndk"
       ],
-      "buildRoot": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx\\cmake\\debug\\x86",
+      "buildRoot": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx\\cmake\\debug\\x86",
       "cmakeToolchain": "C:\\Users\\yujin\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
       "cmakeExecutable": "C:\\Users\\yujin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
       "variables": [
         {
           "name": "CMAKE_FIND_ROOT_PATH",
-          "value": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx\\cmake\\debug\\prefab\\x86\\prefab"
+          "value": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx\\cmake\\debug\\prefab\\x86\\prefab"
         },
         {
           "name": "CMAKE_BUILD_TYPE",
@@ -57,7 +57,7 @@
         },
         {
           "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
-          "value": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\build\\intermediates\\cmake\\debug\\obj\\x86"
+          "value": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\build\\intermediates\\cmake\\debug\\obj\\x86"
         },
         {
           "name": "CMAKE_MAKE_PROGRAM",
@@ -78,14 +78,14 @@
       ]
     }
   },
-  "cxxBuildFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx\\cmake\\debug\\x86",
+  "cxxBuildFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx\\cmake\\debug\\x86",
   "info": {
     "abi": "X86",
     "bitness": 32,
     "deprecated": false,
     "default": true
   },
-  "originalCxxBuildFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx\\cmake\\debug\\x86",
+  "originalCxxBuildFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx\\cmake\\debug\\x86",
   "variant": {
     "buildSystemArgumentList": [
       "-DANDROID_STL\u003dc++_shared"
@@ -105,12 +105,12 @@
         "ninjaExe": "C:\\Users\\yujin\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
       },
       "cmakeToolchainFile": "C:\\Users\\yujin\\AppData\\Local\\Android\\Sdk\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
-      "cxxFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx",
+      "cxxFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx",
       "gradleModulePathName": ":app",
-      "intermediatesFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\build\\intermediates",
-      "makeFile": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\CMakeLists.txt",
-      "moduleBuildFile": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\build.gradle",
-      "moduleRootFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\app",
+      "intermediatesFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\build\\intermediates",
+      "makeFile": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\CMakeLists.txt",
+      "moduleBuildFile": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\build.gradle",
+      "moduleRootFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\app",
       "ndkDefaultAbiList": [
         "ARMEABI_V7A",
         "ARM64_V8A",
@@ -175,12 +175,12 @@
       "ndkDefaultStl": "LIBCXX_STATIC",
       "ndkVersion": "21.3.6528147",
       "project": {
-        "compilerSettingsCacheFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\.cxx",
-        "cxxFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\.cxx",
+        "compilerSettingsCacheFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\.cxx",
+        "cxxFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\.cxx",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,
-        "rootBuildGradleFolder": "C:\\Users\\yujin\\Desktop\\weather-look22",
+        "rootBuildGradleFolder": "C:\\Users\\yujin\\Desktop\\weather-look",
         "sdkFolder": "C:\\Users\\yujin\\AppData\\Local\\Android\\Sdk",
         "isPrefabEnabled": false
       },
@@ -197,7 +197,7 @@
         "SYSTEM": {}
       }
     },
-    "objFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\build\\intermediates\\cmake\\debug\\obj",
+    "objFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\build\\intermediates\\cmake\\debug\\obj",
     "variantName": "debug",
     "validAbiList": [
       "ARMEABI_V7A",
@@ -205,8 +205,8 @@
       "X86",
       "X86_64"
     ],
-    "prefabDirectory": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx\\cmake\\debug\\prefab",
+    "prefabDirectory": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx\\cmake\\debug\\prefab",
     "prefabPackageDirectoryList": []
   },
-  "prefabFolder": "C:\\Users\\yujin\\Desktop\\weather-look22\\app\\.cxx\\cmake\\debug\\prefab\\x86"
+  "prefabFolder": "C:\\Users\\yujin\\Desktop\\weather-look\\app\\.cxx\\cmake\\debug\\prefab\\x86"
 }

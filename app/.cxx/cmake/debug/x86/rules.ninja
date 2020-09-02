@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\Users\yujin\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe -HC:\Users\yujin\Desktop\weather-look22\app -BC:\Users\yujin\Desktop\weather-look22\app\.cxx\cmake\debug\x86
+  command = C:\Users\yujin\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe -HC:\Users\yujin\Desktop\weather-look\app -BC:\Users\yujin\Desktop\weather-look\app\.cxx\cmake\debug\x86
   description = Re-running CMake...
   generator = 1
 
