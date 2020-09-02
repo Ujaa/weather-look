@@ -1,6 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco'
 
+//키숨기기
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def googleMapApiKey = properties.getProperty('google.map.key')
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -16,6 +21,7 @@ android {
                 arguments "-DANDROID_STL=c++_shared"
             }
         }
+        manifestPlaceholders = [googleMapApiKey:googleMapApiKey]
     }
     buildTypes {
         release {

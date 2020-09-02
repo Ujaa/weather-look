@@ -39,11 +39,11 @@
         <activity android:name="org.sookmyung.weatherlook.CategoryActivity"/>
         <activity android:name="org.sookmyung.weatherlook.DetailActivity"/>
         <activity android:name="org.sookmyung.weatherlook.FitPreviewActivity"/>
-        <activity android:name="org.sookmyung.weatherlook.LoadingActivity"/>
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCQRRU8IoUHM1S1HGgTTL3NZTQBoYjP75c" />
+            android:value="${googleMapApiKey}"
+            />
+
     </application>
 
 </manifest>
