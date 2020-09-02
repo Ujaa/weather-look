@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         search2(gpsButton);
     }
 
+
     @Override
     protected void onStart() {//액티비티간 데이터 주고받기
         super.onStart();
@@ -172,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case "Drizzle" :
                     main = "이슬비";
-                    weatherimg.setImageResource(R.drawable.drizzle);
+                    weatherimg.setImageResource(R.drawable.rain);
                     break;
                 case "Rain" :
                     main = "비";
@@ -876,7 +877,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 
 
     public void getMyLocation(){
