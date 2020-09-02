@@ -29,13 +29,10 @@ Weather Look은 구글 지도 API와 open weather map API를 사용하여 날씨
 ### Opencv 설치
  * [Python Opencv 설치법](http://circlestate.tistory.com/4)
 
-### open weather map API 사용방법
- * [Google Cloud Platform 사용설정](http://circlestate.tistory.com/8)
- * [Google Cloud Platform 프로젝트 생성](http://circlestate.tistory.com/9)
- * [Google Cloud Platform 서비스 계정 생성](http://circlestate.tistory.com/10)
- * [Google Cloud Platform 환경설정 및 SDK 다운](http://circlestate.tistory.com/11)
+### API
+ * [지도 API] 구글지도플랫폼-Maps SDK for Android(https://cloud.google.com/maps-platform/)
+ * [날씨 API] openweathermap-Current Weather Data(https://openweathermap.org/api)
 
-	- 링크 참고
 
 ## 전제사항
  * 본 프로젝트의 범위는 스마트폰만 해당된다. 갤럭시탭이나 아이패드와 같은 다른 디바이스는 고려하지 않는다.
