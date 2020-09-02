@@ -1,2 +1,0 @@
-ninja: Entering directory `C:\android_workspace\weather-look\app\.cxx\cmake\debug\x86'
-ninja: no work to do.
