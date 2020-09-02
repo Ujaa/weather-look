@@ -17,7 +17,7 @@ Weather Look은 구글 지도 API와 open weather map API를 사용하여 날씨
 ![architecture](./architecture.png)
 
 ## 데모
-[데모영상](https://youtu.be/DjnEKcIg3a8)
+[데모영상](https://youtu.be/gB7HxzWPQvc)
 
 ## 개발환경
  * 개발환경: Android Studio 3.2.0, jdk-14.0.1, github
