@@ -16,15 +16,6 @@ Weather Look은 구글 지도 API와 open weather map API를 사용하여 날씨
 ### 시스템 구성도
 ![architecture](./architecture.png)
 
-
-### 사용방법
-1. 프로젝트 실행에 필요한 라이브러리를 다운받아 줍니다.
-2. Google Cloud Platform 에 프로젝트를 만듭니다.
-3. Google Cloud Platform에서 Speech To Text API와 Calendar API를 사용설정합니다.
-4. 비공개 키 .json 파일을 다운받고 경로를 등록해줍니다.
-5. Oauth 클라이언트 ID를 만들어 credentials.json를 다운받아 프로젝트 폴더 안에 넣어줍니다.
-6. Main.py를 실행합니다. (저희는 Pycham에서 실행하였습니다.)
-
 ## 데모
 [데모영상](https://youtu.be/DjnEKcIg3a8)
 
